@@ -1,5 +1,9 @@
 Happy::Application.routes.draw do
 
+  resources :users
+
+  resources :videos
+
   root 'welcome#index'
 
 get 'users/' => 'users#index', as: :users
