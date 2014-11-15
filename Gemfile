@@ -6,6 +6,8 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'rspec-rails', group: :development
+
 gem 'bower-rails'
 gem 'angular-rails-templates'
 # Use SCSS for stylesheets
@@ -37,7 +39,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+ gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
 # gem 'unicorn'
