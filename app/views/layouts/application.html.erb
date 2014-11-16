@@ -21,11 +21,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        
+         <% if current_user %>
+     <li> Logged in as <%= current_user.email %>.
+      <%= link_to "Log Out", logout_path  %></li>
+    <% else %>
           <li><%= button_to "Sign Up", new_user_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %> <% flash.each do |name,msg| %>
             <%= content_tag :div, msg, id: "flash_#{name}" %>
         <% end %></li>
           <li><%= button_to "Sign In", new_session_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %></li>
+          <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
