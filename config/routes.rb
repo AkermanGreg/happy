@@ -1,7 +1,6 @@
 Happy::Application.routes.draw do
 
 resources :videos
-
 root 'welcome#index'
 
 get 'users/' => 'users#index', as: :users
@@ -11,5 +10,5 @@ post 'users/' => 'users#create'
 get 'users/:id/edit' => 'users#edit', as: :edit_user
 patch 'users/:id' => 'users#update'
 delete 'users/:id' => 'users#destroy'
-  
+
 end
