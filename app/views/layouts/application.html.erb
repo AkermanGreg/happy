@@ -22,11 +22,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
          <% if current_user %>
-     <li> Logged in as <%= current_user.email %>.
-      <%= link_to "Log Out", logout_path  %></li>
-    <% else %>
-          <li><%= button_to "Sign Up", new_user_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %> <% flash.each do |name,msg| %>
-            <%= content_tag :div, msg, id: "flash_#{name}" %>
+       <li class="navbar-text"> Logged in as <%= current_user.email %>.
+        <%= link_to "Log Out", logout_path  %></li>
+        <% else %>
+        <li><%= button_to "Sign Up", new_user_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %> 
+          <li class="navbar-text"><% flash.each do |name,msg| %></li>
+            <li class="navbar-text"> <%= content_tag :div, msg, id: "flash_#{name}" %></li>
         <% end %></li>
           <li><%= button_to "Sign In", new_session_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %></li>
           <% end %>
