@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  include ActiveModel::SecurePassword
+
   # attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
 
