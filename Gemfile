@@ -9,6 +9,9 @@ gem 'pg'
 gem 'rspec-rails', group: :development
 
 gem 'bower-rails'
+
+gem 'protected_attributes'
+
 gem 'angular-rails-templates'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

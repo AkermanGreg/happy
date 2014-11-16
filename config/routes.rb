@@ -1,7 +1,5 @@
 Happy::Application.routes.draw do
 
-  resources :users
-
   resources :videos
 
   root 'welcome#index'
