@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141115005428) do
     t.string   "treetype"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "crimerate"
   end
 
   create_table "users", force: true do |t|
