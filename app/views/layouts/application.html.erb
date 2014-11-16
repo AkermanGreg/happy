@@ -29,12 +29,12 @@
           <li class="navbar-text"><% flash.each do |name,msg| %></li>
             <li class="navbar-text"> <%= content_tag :div, msg, id: "flash_#{name}" %></li>
         <% end %></li>
-          <li><%= button_to "Sign In", new_session_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %></li>
+          <li><%= button_to "Sign  In", new_session_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %></li>
           <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+</nav><br />
 
 
 <%= yield %>
