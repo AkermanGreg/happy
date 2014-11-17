@@ -5,8 +5,6 @@ get 'logout', to: 'sessions#destroy', as: 'logout'
 resources :sessions
 resources :videos
 
-
-
 root 'welcome#index'
 
 get 'users/' => 'users#index', as: :users

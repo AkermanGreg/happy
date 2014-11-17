@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: pgtestapp_development
+  database: happy_development
   pool: 5
   username: rails
   password: rails
