@@ -26,8 +26,7 @@
         <%= link_to "Log Out", logout_path  %></li>
         <% else %>
         <li><%= button_to "Sign Up", new_user_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %> 
-          <li class="navbar-text"><% flash.each do |name,msg| %></li>
-            <li class="navbar-text"> <%= content_tag :div, msg, id: "flash_#{name}" %></li>
+          <li class="navbar-text"><% flash.each do |name,msg| %> <%= content_tag :div, msg, id: "flash_#{name}" %></li>
         <% end %></li>
           <li><%= button_to "Sign In", new_session_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %></li>
           <% end %>
