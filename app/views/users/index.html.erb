@@ -1,1 +1,8 @@
-<p>I'm a place holder page. I'm located in <%= users_path %> /index.html.erb </p>
+   <% @users.each do |u| %>
+        <li>
+            <strong> <%= u.id %> </strong><br />
+            <%= u.username %><br />
+            <%= u.email %><br />
+             <%= link_to "More details!", user_path(u) %>
+        </li>
+    <% end %>
