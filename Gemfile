@@ -6,7 +6,13 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'rspec-rails', group: :development
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers', require: false
+end
 
 gem 'bower-rails'
 
