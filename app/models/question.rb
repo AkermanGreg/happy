@@ -1,3 +1,5 @@
-class User < ActiveRecord::Base
+class Question < ActiveRecord::Base
+  belongs_to :user
+  has_many :video   
 
-end
+end 

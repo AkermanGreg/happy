@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   include ActiveModel::SecurePassword
   has_secure_password
 
+  has_many :questions
+  has_many :videos, through :questions
+
   attr_accessible :username, :email, :password, :password_confirmation
 
 
