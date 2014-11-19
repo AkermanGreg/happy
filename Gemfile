@@ -10,7 +10,7 @@ gem 'rails', '4.0.4'
 gem 'pg'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
 
   gem 'shoulda-matchers', require: false
   
