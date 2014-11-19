@@ -58,3 +58,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :production do
+
+  #gem for heroku to handle assets
+  gem 'rails_12factor', '0.0.2'
+
+end
