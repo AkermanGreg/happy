@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#Add factory girl
+gem 'factory_girl_rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
@@ -7,10 +10,8 @@ gem 'rails', '4.0.4'
 gem 'pg'
 
 group :development, :test do
-  gem 'rspec-rails'
-end
+  gem 'rspec-rails', '~> 3.0.0'
 
-group :test do
   gem 'shoulda-matchers', require: false
 end
 
@@ -58,3 +59,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :production do
+
+  #gem for heroku to handle assets
+  gem 'rails_12factor', '0.0.2'
+
+end
