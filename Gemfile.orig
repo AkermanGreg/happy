@@ -60,7 +60,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 group :production do
 
   #gem for heroku to handle assets

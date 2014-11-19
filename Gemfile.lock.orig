@@ -158,7 +158,11 @@ DEPENDENCIES
   protected_attributes
   rails (= 4.0.4)
   rails_12factor (= 0.0.2)
+<<<<<<< HEAD
+  rspec-rails (~> 3.0.0)
+=======
   rspec-rails
+>>>>>>> master
   sass-rails (~> 4.0.2)
   sdoc
   shoulda-matchers
