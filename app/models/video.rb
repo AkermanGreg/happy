@@ -6,6 +6,10 @@ class Video < ActiveRecord::Base
   # has_many :comments
   # has_many :hashtags
 
+  belongs_to :user
+  belongs_to :question
+  has_many :videos
+
 end
 
 

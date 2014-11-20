@@ -10,7 +10,7 @@ gem 'rails', '4.0.4'
 gem 'pg'
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0'
 
   gem 'shoulda-matchers', require: false
   
@@ -60,7 +60,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 group :production do
 
   #gem for heroku to handle assets
