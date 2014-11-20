@@ -1,3 +1,7 @@
-class User < ActiveRecord::Base
+class Question < ActiveRecord::Base
+  belongs_to :user
+  has_many :videos     
 
-end
+  validates_length_of :question, minimum: 10, maximum: 500
+
+end 
