@@ -1,3 +1,8 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+  <div class="col-md-4">
+
    <% @users.each do |u| %>
         <li>
             <strong> <%= u.id %> </strong><br />
@@ -6,3 +11,7 @@
              <%= link_to "More details!", user_path(u) %>
         </li>
     <% end %>
+  </div>
+      <div class="col-md-4"></div>
+  </div>
+</div>
