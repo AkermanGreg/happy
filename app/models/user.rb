@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :questions
   # has_many :videos, through :questions
 
-  attr_accessible :username, :email, :password, :password_confirmation
+  #attr_accessible :username, :email, :password, :password_confirmation
 
 
   before_save { |user| user.email = user.email.downcase }
