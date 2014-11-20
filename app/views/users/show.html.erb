@@ -1,6 +1,24 @@
+    
     <h1> <%= @user.id %> </h1>
-
-    <p><%= @user.username %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+       <p><%= @user.username %></p>
     <p><%= @user.email %></p>
 
     <%= link_to "Back to the list!", users_path %>
+  </div>
+  <div class="col-md-4">
+<ul>
+<li>What does the fox say?</li>
+<li>How do I cook chicken? </li>
+<li>What is style?</li>
+<li>Why doesn't my code work?</li>
+<li>What is your best feature?</li>
+<li>What would you do for Taylor Swift?</li>
+</ul>
+ 
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+</div>
