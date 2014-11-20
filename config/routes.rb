@@ -4,6 +4,7 @@ get 'logout', to: 'sessions#destroy', as: 'logout'
 
 resources :sessions
 resources :videos
+resources :questions
 
 root 'welcome#index'
 

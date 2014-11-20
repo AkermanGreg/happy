@@ -18,7 +18,7 @@ end
 
 gem 'bower-rails'
 
-gem 'protected_attributes'
+#gem 'protected_attributes'
 
 gem 'angular-rails-templates'
 # Use SCSS for stylesheets
