@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @video = Video.new
     
   end
 

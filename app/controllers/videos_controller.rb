@@ -6,6 +6,7 @@ class VideosController < ApplicationController
 
   def new
     @video = Video.new
+   
   end
 
   def show
@@ -23,7 +24,7 @@ class VideosController < ApplicationController
 
  private
   def video_params
-    params.require(:video).permit(:filepath, :user_id)
+    params.require(:video).permit(:filepath, :user_id, :the_answer)
   end
 end
-end
+

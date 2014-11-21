@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <% @videos.each do |v| %>
+        <li>
+            <strong> <%#= v.id %> </strong><br />
+           User  ID: <%#=v.user_id %><br />
+           Username: <%#=v.user.username %><br />
+            <%#= v.the_answer %><br />
+            <%#= link_to "More details!", video_path(v) %>
+        </li>
+      <% end %>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

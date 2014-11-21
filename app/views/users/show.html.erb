@@ -1,17 +1,18 @@
-    
-<h1> 
-  Welcome: <%= @user.username %>
-</h1>
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <br />
       <%= link_to "Create a New Question", new_question_path,  :class => 'btn btn-warning' %>
     </div>
     <div class="col-md-4">
+        <h1> 
+        Welcome: <%= @user.username %>
+        </h1>    
+        <i>List of Questions To Answer</i><br />
       <% @questions.each do |q| %>
         <% if  q.user_id != @user.id %>
-          Question: <%=q.the_question %><br />
+          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> - <%= link_to "Answer This Question", question_path(q) %><br />
         <% end %>
       <% end %>
 

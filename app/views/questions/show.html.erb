@@ -10,6 +10,15 @@
     <div class="col-md-4">
       The Question:<%= @question.the_question %><br />
       <i>Belongs to: <%= @question.user.username %></i><br />
+
+      <h2>Answer This Question</h2><br />
+      <%= form_for @video do |v| %>
+        <div class="field">
+          <%= v.text_field :the_answer, :class => 'form-control', :placeholder => 'answer' %>
+        
+        </div>
+        <%= v.submit "Create Answer", :class => 'btn btn-warning' %>
+        <% end %>
     
       <%= link_to "Back to the list!", questions_path %><br />
       <%= link_to "Edit Question", edit_question_path %><br />

@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  attr_accessible :date_submitted, :filepath
+  #attr_accessible :date_submitted, :filepath
 
   # belongs_to :user
   # belongs_to :question
@@ -8,7 +8,7 @@ class Video < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :question
-  has_many :videos
+  #has_many :videos
 
 end
 
