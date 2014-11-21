@@ -1,0 +1,20 @@
+    
+<h1> 
+  <%= @question.id %>
+</h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      The Question:<%= @question.the_question %><br />
+      <i>Belongs to: <%= @question.user.username %></i><br />
+    
+      <%= link_to "Back to the list!", questions_path %><br />
+      <%= link_to "Edit Question", edit_question_path %><br />
+      <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

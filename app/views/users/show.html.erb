@@ -1,21 +1,31 @@
     
 <h1> 
-  <%= @user.id %>
+  Welcome: <%= @user.username %>
 </h1>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
-      <p><%= @user.username %></p>
-      <p><%= @user.email %></p>
-      <% @user.questions.each do |q| %>
-      <p><%= q.the_question %></p>
-      <p><%= q.created_at %></p>                
-      <% end %>
-      <%= link_to "Back to the list!", users_path %>
+      <%= link_to "Create a New Question", new_question_path,  :class => 'btn btn-warning' %>
     </div>
     <div class="col-md-4">
-   
+      <% @questions.each do |q| %>
+        <% if  q.user_id != @user.id %>
+          Question: <%=q.the_question %><br />
+        <% end %>
+      <% end %>
+
+      <hr />
+      <h2>User's Questions</h2>
+      <p>Username: <%= @user.username %></p>
+      <p>E-Mail: <%= @user.email %><br /><br />
+      <% @user.questions.each do |q| %>
+      <i>Created On: <%= q.created_at %></i><br />
+        Question: <%= q.the_question %></p>
+                    
+      <% end %>
+      <%= link_to "Back to the list!", users_path %><br />
+      <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> 
     </div>
     <div class="col-md-4"></div>
   </div>
