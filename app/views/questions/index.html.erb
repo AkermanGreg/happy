@@ -1,16 +1,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4"></div>
-  <div class="col-md-4">
-
-   <% @questions.each do |q| %>
+    <div class="col-md-4">
+      <% @questions.each do |q| %>
         <li>
             <strong> <%= q.id %> </strong><br />
+           User  ID: <%=q.user_id %><br />
+           Username: <%=q.user.username %><br />
             <%= q.the_question %><br />
-             <%= link_to "More details!", question_path(q) %>
+            <%= link_to "More details!", question_path(q) %>
         </li>
-    <% end %>
-  </div>
-      <div class="col-md-4"></div>
+      <% end %>
+    </div>
+    <div class="col-md-4"></div>
   </div>
 </div>
