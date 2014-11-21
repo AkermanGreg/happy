@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
-
-   def index
+  def index
     @questions = Question.all
   end
 
@@ -14,19 +13,15 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-  if @question.save
-    redirect_to questions_path
-  else
-    render "new"
+    if @question.save
+      redirect_to questions_path
+    else
+      render "new"
+    end
   end
-  end
-
-
 
  private
   def question_params
     params.require(:question).permit(:the_question, :user_id)
   end
-
-
 end

@@ -1,8 +1,7 @@
-<%= form_for @question do |q| %><br />
- <div class="field">
-    <%= q.text_field :the_question, :class => 'form-control', :placeholder => 'question' %> <br />
+<%= form_for @question do |q| %>
+  <div class="field">
+    <%= q.text_field :the_question, :class => 'form-control', :placeholder => 'question' %> 
     <%= q.hidden_field :user_id, value: current_user.id %>
   </div>
-
-<%= q.submit "Create Question", :class => 'btn btn-warning' %>
+  <%= q.submit "Create Question", :class => 'btn btn-warning' %>
 <% end %>
