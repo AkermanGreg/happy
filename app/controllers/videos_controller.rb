@@ -15,7 +15,7 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     if @video.save
-      redirect_to questions_path
+      redirect_to videos_path
     else
       render "new"
     end
