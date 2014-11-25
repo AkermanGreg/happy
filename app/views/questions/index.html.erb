@@ -13,7 +13,7 @@
            User  ID: <%=q.user_id %><br />
            Username: <%=q.user.username %><br />
             <%= q.the_question %><br />
-            <%= link_to "More details!", question_path(q) %>
+            <%= link_to "More details!", api_question_path(q) %>
         </li>
       </div>
       <!-- After the first iteration, flag becomes false. It thus flips on each iteration, from true to false, false to true, and repeat. -->
