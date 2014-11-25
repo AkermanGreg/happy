@@ -1,8 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+    
+    <div class="col-md-4 col-md-offset-4">
+      <!--  This flag is going to flip on each iteration. We use it to alternate the assignment of a class.  It starts off as true. -->
+      <% @flag = true %>
+
       <% @questions.each do |q| %>
+      <!-- This is a ternary statement, where conditions ? true : false. True assigns 'good', false assigns 'bad'-->
+      <div class="<%= @flag ? 'good' : 'bad' %>">
         <li>
             <strong> <%= q.id %> </strong><br />
            User  ID: <%=q.user_id %><br />
@@ -10,8 +15,12 @@
             <%= q.the_question %><br />
             <%= link_to "More details!", api_question_path(q) %>
         </li>
+      </div>
+      <!-- After the first iteration, flag becomes false. It thus flips on each iteration, from true to false, false to true, and repeat. -->
+        <% @flag = !@flag %>
+       
       <% end %>
     </div>
-    <div class="col-md-4"></div>
+
   </div>
 </div>
