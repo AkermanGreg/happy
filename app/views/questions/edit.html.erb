@@ -1,12 +1,8 @@
-    <h1> Edit this Question! </h1>
-<p>Username:  <%= @question.user.username %></p>
+<h1> Edit this Question! </h1>
+  <p>Username:  <%= @question.user.username %></p>
     <%= form_for @question do |q| %>
-        The Question: <%= q.text_field :the_question %><br />
-       <br />
-        
-
-        <%= q.submit "Edit Question!" %>
-
+       The Question: <%= q.text_field :the_question %><br />
+       <%= q.submit "Edit Question!" %>
     <% end %>
 
     <%= link_to "Back to the list!", questions_path %>
