@@ -11,9 +11,11 @@
         </h1>    
         <i>List of Questions To Answer</i><br />
       <% @questions.each do |q| %>
-        <% if  q.user_id != @user.id %>
+        <%# old way of restricting questions based on
+         if  q.user_id != @user.id %>
           <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> - <%= link_to "Answer This Question", question_path(q) %><br />
-        <% end %>
+        <%# old way of restricting questions based on
+         end %>
       <% end %>
 
       <hr />
