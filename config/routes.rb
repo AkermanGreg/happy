@@ -3,8 +3,15 @@ Happy::Application.routes.draw do
 get 'logout', to: 'sessions#destroy', as: 'logout'
 
 resources :sessions
-resources :videos
+resources :videos 
 resources :questions
+
+
+ scope 'api', defaults: {format: :json} do
+  get 'questions' => 'api#index', as: :api_questions
+  get 'question/:id' => 'api#show', as: :api_question
+
+ end
 
 root 'welcome#index'
 
@@ -15,5 +22,7 @@ post 'users/' => 'users#create'
 get 'users/:id/edit' => 'users#edit', as: :edit_user
 patch 'users/:id' => 'users#update'
 delete 'users/:id' => 'users#destroy'
+
+
 
 end

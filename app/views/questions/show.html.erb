@@ -1,29 +1,32 @@
-    
-<h1> 
-  <%= @question.id %>
-</h1>
-
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      The Question:<%= @question.the_question %><br />
-      <i>Belongs to: <%= @question.user.username %></i><br />
-
-      <h2>Answer This Question</h2><br />
-      <%= form_for @video do |v| %>
-        <div class="field">
-          <%= v.text_field :the_answer, :class => 'form-control', :placeholder => 'answer' %>
-        
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="panel-heading"><h2>The Question: <%= @question.the_question %></h2></div>
+           <i>Belongs to: <%= @question.user.username %></i><br />
+          <% @question.videos.each do |v| %>
+          <%= v.the_answer %>
+          <% end %>
         </div>
-        <%= v.submit "Create Answer", :class => 'btn btn-warning' %>
-        <% end %>
+      </div>
+      
+      <h3>Answer This Question</h3><br />
+
+      <%= form_for(@video, url: {controller: "videos", action: "create"}) do  %>
+        <div class="field">
+          <%= text_field_tag :the_answer, nil, :class => 'form-control', :placeholder => 'answer' %>
+          <%=hidden_field_tag(:question_id, @question.id) %>
+        </div>
+        <%= submit_tag("Create Answer", :class => 'btn btn-warning')%>
+      <% end %>
     
       <%= link_to "Back to the list!", questions_path %><br />
       <%= link_to "Edit Question", edit_question_path %><br />
       <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> 
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-1"></div>
   </div>
 </div>
+

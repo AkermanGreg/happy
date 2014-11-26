@@ -2,6 +2,8 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
+
+    render json: planets, status: 200
   end
 
   def new
@@ -11,10 +13,16 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @question = Question.find(@video.question.id)
+    @users = User.all
   end
 
   def create
-    @video = Video.new(video_params)
+    @user = current_user
+    question = Question.find(params[:question_id])
+    @video = Video.new(:the_answer => params[:the_answer])
+    @video.user_id = @user.id
+    question.videos << @video
     if @video.save
       redirect_to videos_path
     else
@@ -24,7 +32,7 @@ class VideosController < ApplicationController
 
  private
   def video_params
-    params.require(:video).permit(:filepath, :user_id, :the_answer)
+    params.require(:video).permit(:filepath, :user_id, :the_answer, :question_id)
   end
 end
 

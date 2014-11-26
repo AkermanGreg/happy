@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
+
   end
 
   def new
@@ -9,8 +10,9 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    #@question = Question.find(params[:question_id])
     @video = Video.new
-    
+
   end
 
   def create
@@ -43,6 +45,6 @@ class QuestionsController < ApplicationController
 
  private
   def question_params
-    params.require(:question).permit(:the_question, :user_id)
+    params.require(:question).permit(:the_question, :user_id, :videos => [:id])
   end
 end

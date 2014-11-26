@@ -12,10 +12,15 @@
  *= require_tree .
  */
 
+
  @import 'bootstrap';
 
 
 /* Homepage Image */
+
+.bodyBG {
+  background-color:   #FDFDFD;
+}
 
 #header {
   height: 350px;
@@ -154,3 +159,5 @@ a.whiteLinks:hover{color:#ffffff; text-decoration:underline;}
 .panel-default {
   margin-top: 20px;
 }
+
+
