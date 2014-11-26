@@ -4,12 +4,14 @@ get 'logout', to: 'sessions#destroy', as: 'logout'
 
 resources :sessions
 resources :videos 
+resources :questions
 
-scope 'api', defaults: {format: :json} do
+
+ scope 'api', defaults: {format: :json} do
   get 'questions' => 'api#index', as: :api_questions
   get 'question/:id' => 'api#show', as: :api_question
 
-end
+ end
 
 root 'welcome#index'
 
