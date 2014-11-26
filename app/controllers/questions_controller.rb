@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+  class QuestionsController < ApplicationController
   def index
     @questions = Question.all
 
@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
-    #@question = Question.find(params[:question_id])
+    @question = Question.find(params[:question_id])
     @video = Video.new
 
   end

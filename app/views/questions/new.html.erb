@@ -1,5 +1,8 @@
-
-<%= form_for @question do |q| %>
+<div class="container-fluid">
+  <div class="row"><br />
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <%= form_for @question do |q| %>
 
 
   <div class="field">
@@ -8,4 +11,7 @@
   </div>
 
   <%= q.submit "Create Question", :class => 'btn btn-warning' %>
+
 <% end %>
+
+  </div>
