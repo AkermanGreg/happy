@@ -1,3 +1,29 @@
 // Place all the styles related to the videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html { background-color: #f7f7f7; }
+
+body {
+    background-color: white;
+    border: 1px solid rgb(15, 158, 238);
+    margin: 1% 35%;
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgb(15, 158, 238);
+}
+
+a {
+    color: #2844FA;
+    text-decoration: none;
+}
+
+a:hover, a:focus { color: #1B29A4; }
+
+a:active { color: #000; }
+
+audio, video {
+    border: 1px solid rgb(15, 158, 238); width: 480px; height: 360px;
+}
