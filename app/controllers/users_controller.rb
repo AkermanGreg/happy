@@ -8,9 +8,14 @@ class UsersController < ApplicationController
   end
 
   def show
+
     @user = User.find(params[:id])
     @questions = Question.where.not(user_id: params[:id])
+<<<<<<< HEAD
     @questions = Question.all
+=======
+    #old way of restricting questions based on user_id @questions = Question.all
+>>>>>>> 687f6e3a11aec2762c52c5887a13e6bc8e6a76ac
 
   end
 

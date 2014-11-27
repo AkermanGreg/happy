@@ -27,15 +27,14 @@ ActiveRecord::Schema.define(version: 20141121031906) do
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "videos", force: true do |t|
-    t.string   "date_submitted"
     t.string   "filepath"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "question_id"
     t.string   "the_answer"

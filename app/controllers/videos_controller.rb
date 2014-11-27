@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   def index
     @videos = Video.all
 
-    render json: planets, status: 200
+    #render json: planets, status: 200
   end
 
   def new

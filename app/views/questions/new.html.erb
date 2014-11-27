@@ -1,4 +1,5 @@
 <div class="container-fluid">
+<<<<<<< HEAD
   <div class="row"><br />
     <div class="col-md-4"></div>
     <div class="col-md-4">
@@ -15,3 +16,24 @@
 <% end %>
 
   </div>
+=======
+  <div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-body">
+          <div class="panel-heading"><h2>Create a New Question</h2></div>
+            <%= form_for @question do |q| %>
+              <div class="field">
+                <%= q.text_field :the_question, :class => 'form-control', :placeholder => 'What are you curious about?' %> 
+                <%= q.hidden_field :user_id, value: current_user.id %>
+              </div><br />
+              <%= q.submit "Create Question", :class => 'btn btn-warning' %>
+            <% end %>
+        </div>
+      </div>
+      
+    <div class="col-md-2"></div>
+  </div>
+</div>
+>>>>>>> 687f6e3a11aec2762c52c5887a13e6bc8e6a76ac

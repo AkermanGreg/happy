@@ -1,16 +1,48 @@
 <div id="header" class="header1"></div>
 
+
+
+
+<!-- num is counting how many cells we are along -->
+<% num = 0 %>
+<% @questions.each do |q| %>
+  <!-- every group of 3 opens a new row -->
+  <% if (num % 3) == 0 %>
+    <div class="row">
+  <% end %>
+    <div class="col-md-4">
+      QUESTION: <%= q.the_question %><br />
+      <% if q.videos[0] != nil %>
+        ANSWER: <%= q.videos[0].the_answer %><br/ >
+      <% end %>
+    </div>
+    <!-- if at end of group of 3, it closes the row out -->
+    <% if (num % 3) == 2 %>
+      </div>
+    <% end %>
+    <!-- Adds 1 each loop -->
+    <% num += 1 %>
+<% end %>
+
+<!--ONLY RUNS AFTER LOOP IS OVER if not evenly divisable by 3, must add a div -->
+  <% if (num % 3) != 0 %>
+    </div>
+  <% end %>
+
+
 <div class="row">
   <div class="col-md-4">  
- <video width="480" height="480" controls>
-  <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
-  </video>
+    <video width="480" height="480" controls>
+      <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
+    </video>
   </div>
-  <div class="col-md-4">
-  <video width="480" height="480" controls>
-  <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
-  </video>
+   
+  <div class="col-md-4">  
+    <video width="480" height="480" controls>
+      <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
+    </video>
   </div>
+ 
   <div class="col-md-4">
    <video width="480" height="480" controls>
   <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">

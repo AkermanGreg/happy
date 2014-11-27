@@ -1,26 +1,40 @@
 <div class="container-fluid">
   <div class="row">
-    
-    <div class="col-md-4 col-md-offset-4">
-      <!--  This flag is going to flip on each iteration. We use it to alternate the assignment of a class.  It starts off as true. -->
-      <% @flag = true %>
 
-      <% @questions.each do |q| %>
-      <!-- This is a ternary statement, where conditions ? true : false. True assigns 'good', false assigns 'bad'-->
-      <div class="<%= @flag ? 'good' : 'bad' %>">
-        <li>
-            <strong> <%= q.id %> </strong><br />
-           User  ID: <%=q.user_id %><br />
-           Username: <%=q.user.username %><br />
-            <%= q.the_question %><br />
-            <%= link_to "More details!", question_path(q) %>
-        </li>
-      </div>
-      <!-- After the first iteration, flag becomes false. It thus flips on each iteration, from true to false, false to true, and repeat. -->
-        <% @flag = !@flag %>
-       
-      <% end %>
+    <div class="col-md-2">
     </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+          <div class="panel-heading"><h2>Questions</h2></div>
 
+       
+          <% @questions.each do |q| %>
+            <li>
+              <i><%=q.user.username %> Asks</i><br />
+              <%= q.the_question %><br />
+              <%= link_to "Answer This Question", question_path(q) %>
+            </li>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+        </div>
+        <div class="col-md-4">
+           <div class="panel panel-default">
+          <div class="panel-body">
+          <div class="panel-heading"><h2>Questions with Answers</h2></div>
+          
+          <% @questions.each do |q| %>
+            QUESTION: <%= q.the_question %><br /><br />
+            <% if q.videos[0] != nil %>
+              ANSWER: <%= q.videos[0].the_answer %><br/ ><hr />
+            <% end %>
+           <% end %>
+         </div>
+       </div>
+        </div>
+    <div class="col-md-2">
+    </div>
   </div>
 </div>
