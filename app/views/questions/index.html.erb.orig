@@ -8,9 +8,15 @@
           <div class="panel-heading"><h2>Questions</h2></div>
        
           <% @questions.each do |q| %>
+<<<<<<< HEAD
+            <li>
+              <i><%= q.user.username %><i><br/>
+              <%= q.the_question %><br />
+=======
             <li><%= q.the_question %> <i><%=q.user.username %></i> |  
 
               
+>>>>>>> 03d1763e4d1ba6524631ba8a1eaf68fb4503d45f
               <%= link_to "Answer This Question", question_path(q) %>
             </li>
             <hr />
@@ -26,10 +32,14 @@
           <% @questions.each do |q| %>
             QUESTION: <%= q.the_question %><br />
             <% if q.videos[0] != nil %>
+<<<<<<< HEAD
+              ANSWER: <%= q.videos[0].the_answer %><br/ ><br />
+=======
               <video width="480" height="480" controls>
               <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
               </video>
               ANSWER: <%= q.videos[0].the_answer %><br/ ><hr />
+>>>>>>> 03d1763e4d1ba6524631ba8a1eaf68fb4503d45f
             <% end %>
            <% end %>
          </div>
