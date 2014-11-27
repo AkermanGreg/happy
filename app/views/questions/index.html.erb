@@ -1,18 +1,16 @@
 <div class="container-fluid">
   <div class="row">
-
-    <div class="col-md-2">
+    <div class="col-md-1">
     </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <div class="panel panel-default">
           <div class="panel-body">
           <div class="panel-heading"><h2>Questions</h2></div>
-
        
           <% @questions.each do |q| %>
-            <li>
-              <i><%=q.user.username %> Asks</i><br />
-              <%= q.the_question %><br />
+            <li><%= q.the_question %> <i><%=q.user.username %></i> |  
+
+              
               <%= link_to "Answer This Question", question_path(q) %>
             </li>
             <hr />
@@ -20,21 +18,24 @@
         </div>
       </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
            <div class="panel panel-default">
           <div class="panel-body">
           <div class="panel-heading"><h2>Questions with Answers</h2></div>
           
           <% @questions.each do |q| %>
-            QUESTION: <%= q.the_question %><br /><br />
+            QUESTION: <%= q.the_question %><br />
             <% if q.videos[0] != nil %>
+              <video width="480" height="480" controls>
+              <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
+              </video>
               ANSWER: <%= q.videos[0].the_answer %><br/ ><hr />
             <% end %>
            <% end %>
          </div>
        </div>
         </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
     </div>
   </div>
 </div>
