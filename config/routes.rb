@@ -3,10 +3,12 @@ Happy::Application.routes.draw do
 get 'logout', to: 'sessions#destroy', as: 'logout'
 
 resources :sessions
-resources :videos
 resources :questions
 
 root 'welcome#index'
+
+get "video/new", to: "video#index", as: :new_video
+post "video/", to: "video#upload", as: :create_video
 
 get 'users/' => 'users#index', as: :users
 get 'users/new' => 'users#new', as: :new_user
