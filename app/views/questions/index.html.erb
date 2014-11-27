@@ -11,7 +11,7 @@
        
           <% @questions.each do |q| %>
             <li>
-              <i><%=q.user.username %> Asks</i><br />
+              <i><%= q.user.username %><i><br/>
               <%= q.the_question %><br />
               <%= link_to "Answer This Question", question_path(q) %>
             </li>
@@ -28,7 +28,7 @@
           <% @questions.each do |q| %>
             QUESTION: <%= q.the_question %><br /><br />
             <% if q.videos[0] != nil %>
-              ANSWER: <%= q.videos[0].the_answer %><br/ ><hr />
+              ANSWER: <%= q.videos[0].the_answer %><br/ ><br />
             <% end %>
            <% end %>
          </div>

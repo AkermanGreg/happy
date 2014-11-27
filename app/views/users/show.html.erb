@@ -3,31 +3,20 @@
     <div class="col-md-1"></div>
     <div class="col-md-3"><%= link_to "Create a Question", new_question_path, :class => "btn btn-warning" %></div>
     <div class="col-md-4">
-<<<<<<< HEAD
+
       <div> Welcome <%= @user.username %> </div></br>
       <% @user.questions.each do |q| %>
       <%= link_to q.the_question, question_path(q) %> 
       <%= link_to "Delete", method: :delete, :class => "btn btn-danger btn-xs float-right" %> </br>
       <%= q.created_at %></br>
       <% end %> 
-=======
-        <h1> 
-        Welcome: <%= @user.username %>
-        </h1>    
-        <i>List of Questions To Answer</i><br />
-      <% @questions.each do |q| %>
-        <%# old way of restricting questions based on
-         if  q.user_id != @user.id %>
-          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> - <%= link_to "Answer This Question", question_path(q) %><br />
-        <%# old way of restricting questions based on
-         end %>
-      <% end %>
+
 
       <hr />
       <h2>User's Questions</h2>
       <p>Username: <%= @user.username %></p>
       <p>E-Mail: <%= @user.email %><br /><br />
->>>>>>> 687f6e3a11aec2762c52c5887a13e6bc8e6a76ac
+
       <% @user.questions.each do |q| %>
       <%= q.user.inspect %> <%= q.the_question %> </br>
       <%= q.created_at %> </br>
