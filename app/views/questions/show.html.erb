@@ -7,23 +7,17 @@
           <div class="panel-heading"><h2>The Question: <%= @question.the_question %></h2></div>
            <i>Belongs to: <%= @question.user.username %></i><br />
           <% @question.videos.each do |v| %>
-          <%= v.the_answer %><br /><br />
+          <br /><br />
             <video width="480" height="480" controls>
-            <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
+            <source src="<%= v.filepath %>" type="video/webm">
             </video>
           <% end %>
         </div>
       </div>
       
-      <h3>Answer This Question</h3><br />
+      <%= link_to "Answer This Question", new_video_path(@question.id) %><br />
 
-      <%= form_for(@video, url: {controller: "videos", action: "create"}) do  %>
-        <div class="field">
-          <%= text_field_tag :the_answer, nil, :class => 'form-control', :placeholder => 'answer' %>
-          <%=hidden_field_tag(:question_id, @question.id) %>
-        </div>
-        <%= submit_tag("Create Answer", :class => 'btn btn-warning')%>
-      <% end %>
+
     
       <%= link_to "Back to the list!", questions_path %><br />
       <%= link_to "Edit Question", edit_question_path %><br />
