@@ -15,16 +15,9 @@
         </div>
       </div>
       
-      <h3>Answer This Question</h3><br />
-      
+      <%= link_to "Answer This Question", new_video_path(@question.id) %><br />
 
-      <%= form_for(@video, url: {controller: "video", action: "upload"}) do  %>
-        <div class="field">
-          <%= text_field_tag :the_answer, nil, :class => 'form-control', :placeholder => 'answer' %>
-          <%=hidden_field_tag(:question_id, @question.id) %>
-        </div>
-        <%= submit_tag("Create Answer", :class => 'btn btn-warning')%>
-      <% end %>
+
     
       <%= link_to "Back to the list!", questions_path %><br />
       <%= link_to "Edit Question", edit_question_path %><br />
