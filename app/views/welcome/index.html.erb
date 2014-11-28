@@ -12,8 +12,16 @@
   <% end %>
     <div class="col-md-4">
       QUESTION: <%= q.the_question %><br />
-      <% if q.videos[0] != nil %>
-        ANSWER: <%= q.videos[0].the_answer %><br/ >
+      <% if !q.videos.nil? %>
+        <% if !q.videos[0].nil? %>
+          <%if !q.videos[0].filepath.nil? %>
+         
+            <video width="90%" height="90%" controls>
+              <source src="<%= q.videos[0].filepath %>" type="video/webm">
+            </video>
+          <br/ >
+          <% end %>
+        <% end %>
       <% end %>
     </div>
     <!-- if at end of group of 3, it closes the row out -->
@@ -30,38 +38,8 @@
   <% end %>
 
 
-<div class="row">
-  <div class="col-md-4">  
-    <video width="480" height="480" controls>
-      <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
-    </video>
-  </div>
-   
-  <div class="col-md-4">  
-    <video width="480" height="480" controls>
-      <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
-    </video>
-  </div>
- 
-  <div class="col-md-4">
-   <video width="480" height="480" controls>
-  <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
-  </video>
 
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <iframe class="vine-embed" src="https://vine.co/v/O5q9TMb6rir/embed/simple" width="480" height="480" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
-  </div>
-  <div class="col-md-4">
-    <iframe class="vine-embed" src="https://vine.co/v/OilgX6MEqMd/embed/simple" width="480" height="480" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
-  </div>
-  <div class="col-md-4">
-    <iframe class="vine-embed" src="https://vine.co/v/M9HOLIZOOu3/embed/simple" width="480" height="480" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
-  </div>
-</div>
- 
+
  <div class="row" style="background-color: black; color: white;">
   <div class="col-md-3">
     <ul>

@@ -1,24 +1,37 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3">
-      <br />
-      <%= link_to "Create a New Question", new_question_path,  :class => 'btn btn-warning' %>
-    </div>
+  
     <div class="col-md-4">
+      <br />
+      <%= link_to "Create a New Question", new_question_path,  :class => 'btn btn-warning' %><br />
         <h1> 
         Welcome: <%= @user.username %>
         </h1>    
         <i>List of Questions To Answer</i><br />
       <% @questions.each do |q| %>
-        <%# old way of restricting questions based on
-         if  q.user_id != @user.id %>
-          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> - <%= link_to "Answer This Question", question_path(q) %><br />
-        <%# old way of restricting questions based on
-         end %>
+        <% if  q.user_id != @user.id %>
+          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> - <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br />
+        <% end %>
+         
       <% end %>
 
-      <hr />
+     
+    </div>
+    <div class="col-md-4">
+  <h2>User's Answers</h2>
+
+  <% @user.videos.each do |v| %>
+  <%= v.inspect %>
+  <%= v.question.the_question %><br />
+    <video width="480" height="480" controls>
+    <source src="<%= v.filepath %>" type="video/webm">
+    </video><br />
+   <% end %>
+
+      
+    </div>
+    <div class="col-md-4">
+         <hr />
       <h2>User's Questions</h2>
       <p>Username: <%= @user.username %></p>
       <p>E-Mail: <%= @user.email %><br /><br />
@@ -28,8 +41,6 @@
                     
       <% end %>
       <%= link_to "Back to the list!", users_path %><br />
-      <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> 
-    </div>
-    <div class="col-md-4"></div>
+      <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> </div>
   </div>
 </div>
