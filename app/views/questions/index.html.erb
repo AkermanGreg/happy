@@ -10,7 +10,6 @@
           <% @questions.each do |q| %>
             <li><%= q.the_question %> <i><%=q.user.username %></i> |  
 
-              
               <%= link_to "Answer This Question", question_path(q) %>
             </li>
             <hr />

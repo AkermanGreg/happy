@@ -7,8 +7,10 @@ root 'welcome#index'
 resources :sessions
 resources :questions
 
-get "video/new", to: "video#index", as: :new_video
-post "video/", to: "video#upload", as: :create_video
+get "videos/:question_id/new", to: "videos#new", as: :new_video
+post "videos/save", to: "videos#save", as: :save_video
+post "videos/", to: "videos#upload", as: :create_video
+
 
 get 'users/' => 'users#index', as: :users
 get 'users/new' => 'users#new', as: :new_user
