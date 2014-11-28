@@ -1,18 +1,38 @@
 <div class="container-fluid">
-  <div class="row"><br />
-    <div class="col-md-1"></div>
-    <div class="col-md-3"><%= link_to "Create a Question", new_question_path, :class => "btn btn-warning" %></div>
+
+  <div class="row">
+  
     <div class="col-md-4">
+      <br />
+      <%= link_to "Create a New Question", new_question_path,  :class => 'btn btn-warning' %><br />
+        <h1> 
+        Welcome: <%= @user.username %>
+        </h1>    
+        <i>List of Questions To Answer</i><br />
+      <% @questions.each do |q| %>
+        <% if  q.user_id != @user.id %>
+          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> - <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br />
+        <% end %>
+         
+      <% end %>
 
-      <div> Welcome <%= @user.username %> </div></br>
-      <% @user.questions.each do |q| %>
-      <%= link_to q.the_question, question_path(q) %> 
-      <%= link_to "Delete", method: :delete, :class => "btn btn-danger btn-xs float-right" %> </br>
-      <%= q.created_at %></br>
-      <% end %> 
+     
+    </div>
+    <div class="col-md-4">
+  <h2>User's Answers</h2>
 
+  <% @user.videos.each do |v| %>
+  <%= v.inspect %>
+  <%= v.question.the_question %><br />
+    <video width="480" height="480" controls>
+    <source src="<%= v.filepath %>" type="video/webm">
+    </video><br />
+   <% end %>
 
-      <hr />
+      
+    </div>
+    <div class="col-md-4">
+         <hr />
       <h2>User's Questions</h2>
       <p>Username: <%= @user.username %></p>
       <p>E-Mail: <%= @user.email %><br /><br />
@@ -22,11 +42,11 @@
       <%= q.created_at %> </br>
        
       <% end %>
+
     </div>
 
 
-   
-    <div class="col-md-4">Videos here</div>
+
   </div>
 </div>
 
