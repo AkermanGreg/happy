@@ -18,7 +18,7 @@
       <p>E-Mail: <%= @user.email %><br /><br />
 
       <% @user.questions.each do |q| %>
-      <%= q.user.inspect %> <%= q.the_question %> </br>
+      <%= q.user.username %>: <%= q.the_question %> </br>
       <%= q.created_at %> </br>
        
       <% end %>

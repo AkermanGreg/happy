@@ -7,9 +7,15 @@
           <div class="panel-heading"><h2>The Question: <%= @question.the_question %></h2></div>
            <i>Belongs to: <%= @question.user.username %></i><br />
           <% @question.videos.each do |v| %>
+<<<<<<< HEAD
+          <%= v.the_answer %><br /><br />
+            <video width="480" height="480" controls>
+            <source src="1d39ffk1wzh1nt13n8dsj_merged.webm" type="video/webm">
+=======
           <br /><br />
             <video width="480" height="480" controls>
             <source src="<%= v.filepath %>" type="video/webm">
+>>>>>>> master
             </video>
           <% end %>
         </div>

@@ -1,6 +1,8 @@
-class VideoController < ApplicationController
+class VideosController < ApplicationController
 
-  def index
+  def new
+    @question = Question.find(params[:question_id])
+    @video = Video.new
   end
 
   def upload
@@ -8,8 +10,8 @@ class VideoController < ApplicationController
     # convert video
     if vidfile = convert_vid
 
+      # push to s3 if production or else save locally
       if Rails.env == 'production'
-        # push to s3
         if s3_url = push_s3(vidfile)
           render :text => s3_url
         else
@@ -17,7 +19,8 @@ class VideoController < ApplicationController
         end
 
       else
-        render :text => vidfile.gsub('public','')
+        vidfile = vidfile.gsub('public','')
+        render :text => vidfile
       end
 
     else
@@ -28,7 +31,27 @@ class VideoController < ApplicationController
 
   end
 
+
+  def save
+
+    # save video to db
+
+    @video = Video.new(params.permit(:filepath, :question_id, :user_id))
+
+    if @video.save
+      redirect_to user_path(session[:user_id])
+    else
+      render 'new'
+    end
+
+  end
+
+
 private
+
+  def video_params
+    params.require(:video).permit(:filepath, :question_id, :user_id)
+  end
 
   def convert_vid
       upload_body = request.body.read
@@ -100,10 +123,6 @@ private
     return s3_object.public_url
     # return s3_object.url_for(:read)
     # return "http://kentuckyfrychicken.s3.amazonaws.com/#{fname}"
-
-    def video_params
-      params.require(:video).permit(:filepath, :user_id)
-    end
 
   end
 

@@ -2,6 +2,7 @@ function mediaRecorder() {
 
     var btnStartRecording = document.querySelector('#btn-start-recording');
     var btnStopRecording  = document.querySelector('#btn-stop-recording');
+    var btnSaveRecording  = document.querySelector('#btn-save');
 
     var videoElement      = document.querySelector('video');
 
@@ -14,6 +15,9 @@ function mediaRecorder() {
     var fileName;
     var audioRecorder;
     var videoRecorder;
+
+    var btnSaveRecording  = document.querySelector('#btn-save');
+
 
     // Firefox can record both audio/video in single webm container
     // Don't need to create multiple instances of the RecordRTC for Firefox
@@ -63,15 +67,17 @@ function mediaRecorder() {
         videoElement.poster = '/ajax-loader.gif';
 
         // replay the video plus add controls
-        xhr('/video', JSON.stringify(files), function(_fileName) {
+        xhr('/videos', JSON.stringify(files), function(_fileName) {
             videoElement.src = _fileName;
-            videoElement.play();
+            // videoElement.play();
             videoElement.muted = false;
             videoElement.controls = true;
 
+            btnSaveRecording.disabled = false;
+
             var h2 = document.createElement('h2');
             h2.innerHTML = '<a href="' + videoElement.src + '">' + videoElement.src + '</a>';
-            document.body.appendChild(h2);
+            // document.body.appendChild(h2);
         });
 
         if(mediaStream) mediaStream.stop();
@@ -91,13 +97,12 @@ function mediaRecorder() {
             progressBar.value = event.loaded;
             progressBar.innerHTML = 'Upload Progress ' + Math.round(event.loaded / event.total * 100) + "%";
         };
-                
+
         request.upload.onload = function() {
             percentage.style.display = 'none';
             progressBar.style.display = 'none';
         };
         request.open('POST', url);
-        console.log(data);
         request.send(data);
 
     }
@@ -166,7 +171,7 @@ function mediaRecorder() {
             videoElement.play();
             videoElement.muted = true;
             videoElement.controls = false;
-            
+
             // it is second parameter of the RecordRTC
             var audioConfig = {};
             if(!isRecordOnlyAudio) {
@@ -209,10 +214,28 @@ function mediaRecorder() {
                 });
             });
         }
+
     };
+
 
     window.onbeforeunload = function() {
         startRecording.disabled = false;
     };
 
-}
+};
+
+
+function postVideo() {
+
+    var videoElement = document.querySelector('video');
+
+    var videoForm = document.querySelector('#form-post-video');
+    var btnSaveRecording  = document.querySelector('#btn-save');
+    var filenameField = document.querySelector('#filepath');
+
+    btnSaveRecording.disabled = true;
+
+    filenameField.setAttribute('value', videoElement.src);
+    videoForm.submit();
+
+};
