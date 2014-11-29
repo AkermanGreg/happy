@@ -11,7 +11,7 @@
         <i>List of Questions To Answer</i><br />
       <% @questions.each do |q| %>
         <% if  q.user_id != @user.id %>
-          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> - <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br />
+          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> <br /> <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br /><br />
         <% end %>
          
       <% end %>
@@ -22,9 +22,9 @@
   <h2>User's Answers</h2>
 
   <% @user.videos.each do |v| %>
-  <%= v.inspect %>
+  
   <%= v.question.the_question %><br />
-    <video width="480" height="480" controls>
+    <video width="90%" height="90%" controls>
     <source src="<%= v.filepath %>" type="video/webm">
     </video><br />
    <% end %>

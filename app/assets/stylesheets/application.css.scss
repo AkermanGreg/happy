@@ -20,6 +20,8 @@
 
 .bodyBG {
   background-color:   #FDFDFD;
+  text-align:left;
+  font-family: 'Droid Sans', sans-serif;
 }
 
 #header {
@@ -164,4 +166,16 @@ video{ /* video border */ border: 1px solid #ccc; padding: 5px; margin: 5px; bor
 
 .floatRight {
   float:right;
+}
+
+.homepage-boxes {
+  border: 1px solid red;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
 }

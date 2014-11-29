@@ -5,12 +5,13 @@
 
 <!-- num is counting how many cells we are along -->
 <% num = 0 %>
-<% @questions.each do |q| %>
+<% @questions.take(6).each do |q| %>
   <!-- every group of 3 opens a new row -->
   <% if (num % 3) == 0 %>
     <div class="row">
   <% end %>
     <div class="col-md-4">
+      <div class="homepage-boxes">
       QUESTION: <%= q.the_question %><br />
       <% if !q.videos.nil? %>
         <% if !q.videos[0].nil? %>
@@ -23,6 +24,7 @@
           <% end %>
         <% end %>
       <% end %>
+    </div>
     </div>
     <!-- if at end of group of 3, it closes the row out -->
     <% if (num % 3) == 2 %>
