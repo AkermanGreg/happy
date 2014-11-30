@@ -35,7 +35,6 @@ class VideosController < ApplicationController
   def save
 
     # save video to db
-
     @video = Video.new(params.permit(:filepath, :question_id, :user_id))
 
     if @video.save
