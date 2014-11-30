@@ -18,17 +18,19 @@
                       <hr />
                     
                   <% end %>
-                
+                  <%= link_to "delete", @video, method: :delete, data: {confirm: 'Are you sure?'} %>
+
             <% end %>
         </div>
       </div>
-      
+
       <%= link_to "Answer This Question", new_video_path(@question.id) %><br />
 
 
-    
       <%= link_to "Back to the list!", questions_path %><br />
       <%= link_to "Edit Question", edit_question_path %><br />
+
+
       <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> 
     </div>
     <div class="col-md-1"></div>
