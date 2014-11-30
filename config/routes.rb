@@ -8,6 +8,7 @@ resources :sessions
 resources :questions
 
 get "videos/:question_id/new", to: "videos#new", as: :new_video
+get "videos/index", to: "videos#index", as: :videos
 post "videos/save", to: "videos#save", as: :save_video
 post "videos/", to: "videos#upload", as: :create_video
 

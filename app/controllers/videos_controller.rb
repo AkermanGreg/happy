@@ -5,6 +5,10 @@ class VideosController < ApplicationController
     @video = Video.new
   end
 
+  def index
+    @videos = Video.all
+  end
+
   def upload
 
     # convert video
