@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4">  
+
       <br />
       <br />
       <br />
@@ -8,13 +9,14 @@
         <h1> 
         Welcome: <%= @user.username %>
         </h1>    
+
         <i>List of Questions To Answer</i><br />
       <% @questions.each do |q| %>
         <% if  q.user_id != @user.id %>
           <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> <br /> <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br /><br />
         <% end %>
-         
       <% end %>
+
 
      
     </div>
@@ -32,10 +34,8 @@
       <% end %>
    <% end %>
         </div> 
-
-
-
     </div>  
+
     <div class="col-md-4">
          <hr />
       <h2>User's Questions</h2>
@@ -44,7 +44,7 @@
       <p>E-Mail: <%= @user.email %><br /><br />
         
       <% @user.questions.each do |q| %>
-      <%= q.user.username %>: <%= q.the_question %> </br>
+      <%= q.user.username %>: <%= link_to q.the_question %> </br>
       <%= q.created_at %> </br>
        
       <% end %>
