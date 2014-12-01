@@ -4,13 +4,14 @@
       <br />
       <br />
       <br />
-      <%= link_to "Ask qURL", new_question_path,  :class => 'btn btn-warning' %><br />
-        <h1> 
-        Welcome: <%= @user.username %>
-        </h1>    
-        <i>List of Questions To Answer</i><br />
-      <% @questions.each do |q| %>
-        <% if  q.user_id != @user.id %>
+       <h1> 
+          Welcome: <%= @user.username %>  <%= link_to "Ask qURL", new_question_path,  :class => 'btn btn-primary' %>
+        </h1> 
+     <br />
+          
+        <h2>List of Questions To Answer</h2><br />
+        <% @questions.each do |q| %>
+          <% if  q.user_id != @user.id %>
           <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> <br /> <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br /><br />
         <% end %>
          
@@ -38,15 +39,13 @@
 
     </div>  
     <div class="col-md-4">
-         <hr />
-      <h2>User's Questions</h2>
-      <p>Username: <%= @user.username %></p><br />
-
+       
+      <h2><%= @user.username %>'s Questions</h2>
       <p>E-Mail: <%= @user.email %><br /><br />
-        
       <% @user.questions.each do |q| %>
       <%= q.user.username %>: <%= q.the_question %> </br>
-      <%= q.created_at %> </br>
+      </br>
+      <%= link_to "Edit User", edit_user_path %>
        
       <% end %>
 
