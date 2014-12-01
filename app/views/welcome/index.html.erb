@@ -1,19 +1,15 @@
 <div id="header" class="header1"></div>
-
-
-
-
 <!-- num is counting how many cells we are along -->
-<% num = 0 %>
-<% @questions.take(6).each do |q| %>
+  <% num = 0 %>
+    <% @questions.take(6).each do |q| %>
   <!-- every group of 3 opens a new row -->
   <% if (num % 3) == 0 %>
     <div class="row">
   <% end %>
     <div class="col-md-4">
       <div class="homepage-boxes">
-       <span class="center-text">q: <%= q.the_question %></span>
-      <hr />
+        <p class="bg-primary text-center">q: <%= q.the_question %> </p>
+      
       <% if !q.videos.nil? %>
         <% if !q.videos[0].nil? %>
           <%if !q.videos[0].filepath.nil? %>
@@ -50,7 +46,7 @@
   </div>
   <div class="col-md-10">
     <br /><br />
-  <p>Developed by Sarah Cho, Gregory Akerman, and Martina Vassileva while students at General Assembly's Web Development Immersive Program</p><br />
+  <p class="text-center">Developed by Sarah Cho, Gregory Akerman, and Martina Vassileva while students at General Assembly's Web Development Immersive Program</p><br />
   </div>
 
   <div class="col-md-1">

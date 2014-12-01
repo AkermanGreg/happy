@@ -5,11 +5,11 @@
     <div class="col-md-5">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="panel-heading"><h2>Questions</h2></div>
+          <div class="panel-heading"><h2 class="bg-info text-center">Questions</h2></div>
           <% @questions.each do |q| %>
             <span class="grey"><span class="underline"><%=q.user.username %></span> wants to know...</span><br />
             <li><span class="questions"><%= q.the_question %></span><br />
-              <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-success' %>
+              <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-primary center-block' %>
             </li>
             <hr />
           <% end %>
@@ -20,7 +20,7 @@
       <div class="col-md-5">
         <div class="panel panel-default">
           <div class="panel-body">
-          <div class="panel-heading"><h2>Questions with Answers</h2></div>
+          <div class="panel-heading"><h2 class="bg-info text-center">Questions with Answers</h2></div>
             <% @questions.each do |q| %>
               <span class="grey"><span class="underline"><%= link_to q.user.username, user_path(q) %></span> wants to know...<br />
               <span class="questions"><%= link_to q.the_question, question_path(q) %></span> <br />
