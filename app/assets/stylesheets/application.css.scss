@@ -54,6 +54,10 @@ a.whiteLinks:link {color:#ffffff;}
 a.whiteLinks:visited {color:#ffffff;}
 a.whiteLinks:hover{color:#ffffff; text-decoration:underline;}
 
+a.redLinks:link {color:red; text-decoration:underline; font-size: 14px;}
+a.redLinks:visited {color:red; text-decoration:underline; font-size: 14px;}
+a.redLinks:hover{color:red; text-decoration: none; font-size: 14px;}
+
   
 
 
@@ -95,6 +99,10 @@ h1, h2, h3, h4, h5, h6 {
   color: red;
 }
 
+.green {
+  color: green;
+}
+
 .underline {
   text-decoration: underline;
 }
@@ -105,7 +113,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-default {
-background-color: #1E1389;
+background-color: #4da4b8;
+}
+
+.btn-primary {
+  background-color: #4da4b8;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -141,9 +153,10 @@ background-color: #1E1389;
 }
 
 .homepage-white {
-  font-size: 20px;
-  font-weight: extra-bold;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
   color: white;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 2px 2px 2px black;
 }
 
