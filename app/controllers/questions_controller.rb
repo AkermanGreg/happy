@@ -6,6 +6,10 @@
 
   def new
     @question = Question.new
+
+    if !current_user
+      redirect_to new_user_path
+    end
   end
 
   def show

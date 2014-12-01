@@ -16,7 +16,7 @@
                         <i>Belongs to: <%= link_to @question.user.username, user_path(@question.user.id) %></i>
                         <%=form_tag(delete_video_path(id: v.id, question_id: @question.id), method: "delete") do %>
                           <div class='actions'>
-                            <%= button_tag "Delete Answer", :class => 'btn btn-warning' %><br />
+                            <%= button_tag "Delete Answer", data: { confirm: 'Are you sure?' } %><br />
                             <%= link_to "Back to the list!", questions_path %><br />
                           </div>
                       </div>
@@ -36,7 +36,7 @@
     
       
       <%= link_to "Edit", edit_question_path %><br />
-     <!--  <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>  -->
+    
     </div>
     <div class="col-md-1"></div>
   </div>

@@ -5,12 +5,14 @@
     <div class="col-md-5">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="panel-heading"><h2 class="bg-info text-center">Questions</h2></div>
+          <div class="panel-heading"><h2 class="red text-center">Questions</h2></div>
           <% @questions.each do |q| %>
-            <span class="grey"><span class="underline"><%=q.user.username %></span> wants to know...</span><br />
-            <li><span class="questions"><%= q.the_question %></span><br />
-              <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-primary center-block' %>
-            </li>
+              
+
+            <div class="questions-index"><span class="red">Q: </span><%= q.the_question %>"</div>
+            <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q) %>  Asked</span></div><br />
+              <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-default center-block' %>
+            
             <hr />
           <% end %>
         </div>
@@ -20,10 +22,10 @@
       <div class="col-md-5">
         <div class="panel panel-default">
           <div class="panel-body">
-          <div class="panel-heading"><h2 class="bg-info text-center">Questions with Answers</h2></div>
+          <div class="panel-heading"><h2 class="red text-center">Questions with Answers</h2></div>
             <% @questions.each do |q| %>
-              <span class="grey"><span class="underline"><%= link_to q.user.username, user_path(q) %></span> wants to know...<br />
-              <span class="questions"><%= link_to q.the_question, question_path(q) %></span> <br />
+              <span class="questions"><span class="red">Q: </span><%= link_to q.the_question, question_path(q) %></span> <br />
+              <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q) %> Asked</div><br />
               <% if q.videos[0] != nil %>
                 <video width="90%" height="90%" controls>
                   <source src="<%= q.videos[0].filepath %>" type="video/webm">

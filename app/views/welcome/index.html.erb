@@ -17,7 +17,7 @@
             <video width="90%" height="90%" controls>
               <source src="<%= q.videos[0].filepath %>" type="video/webm">
             </video><br />
-             <%= button_to 'View All Answers', question_path(q), method: :get, :class => 'btn btn-primary center-block' %>
+             <%= link_to 'View All Answers', question_path(q), method: :get, :class => 'btn btn-primary center-block' %>
           
           <% end %>
         <% end %>

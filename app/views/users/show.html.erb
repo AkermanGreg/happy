@@ -4,13 +4,14 @@
       <br />
       <br />
       <br />
-      <%= link_to "Ask qURL", new_question_path,  :class => 'btn btn-warning' %><br />
-        <h1> 
-        Welcome: <%= @user.username %>
-        </h1>    
-        <i>List of Questions To Answer</i><br />
-      <% @questions.each do |q| %>
-        <% if  q.user_id != @user.id %>
+       <h1> 
+          Welcome: <%= @user.username %>  <%= link_to "Ask qURL", new_question_path,  :class => 'btn btn-primary' %>
+        </h1> 
+     <br />
+          
+        <h2>List of Questions To Answer</h2><br />
+        <% @questions.each do |q| %>
+          <% if  q.user_id != @user.id %>
           <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> <br /> <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br /><br />
         <% end %>
          
@@ -29,15 +30,16 @@
       <%=form_tag(delete_video_path(id: v.id, question_id: v.question_id), method: "delete") do %>
         <div class='actions'>
         <%= button_tag "Delete", :class => 'btn btn-warning btn-xs' %>
+       </div> 
       <% end %>
    <% end %>
-        </div> 
+       
 
 
 
     </div>  
     <div class="col-md-4">
-         <hr />
+       
       <h2>User's Questions</h2>
       <p>Username: <%= @user.username %></p><br />
 
