@@ -18,6 +18,13 @@
         <div class="panel-footer">
           <small><p class="text-muted">New to Happy? <%= link_to "Sign Up", new_user_path %> </p></small>
         </div>
+        <div>
+          hii hii
+          <% flash.each do |name,msg| %> 
+          <%= content_tag :div, msg, id: "flash_#{name}" %>     
+          <% end %>
+        </div>
+
       </div>       
     </div>
     <div class="col-md-4"></div>
