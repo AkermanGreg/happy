@@ -4,7 +4,9 @@
   
     <div class="col-md-4">
       <br />
-      <%= link_to "Create a New Question", new_question_path,  :class => 'btn btn-warning' %><br />
+      <br />
+      <br />
+      <%= link_to "Ask qURL", new_question_path,  :class => 'btn btn-warning' %><br />
         <h1> 
         Welcome: <%= @user.username %>
         </h1>    
@@ -23,14 +25,19 @@
 
   <% @user.videos.each do |v| %>
   
-  <%= v.question.the_question %><br />
     <video width="90%" height="90%" controls>
     <source src="<%= v.filepath %>" type="video/webm">
     </video><br />
+      <%=form_tag(delete_video_path(id: v.id, question_id: v.question_id), method: "delete") do %>
+        <div class='actions'>
+        <%= button_tag "Delete", :class => 'btn btn-warning btn-xs' %>
+      <% end %>
    <% end %>
+        </div> 
 
-      
-    </div>
+
+
+    </div>  
     <div class="col-md-4">
          <hr />
       <h2>User's Questions</h2>
@@ -38,7 +45,7 @@
       <p>E-Mail: <%= @user.email %><br /><br />
 
       <% @user.questions.each do |q| %>
-      <%= q.user.username %>: <%= q.the_question %> </br>
+      <%= q.user.username %>: <%= link_to q.the_question %> </br>
       <%= q.created_at %> </br>
        
       <% end %>

@@ -9,7 +9,7 @@
           <% @questions.each do |q| %>
             <span class="grey"><span class="underline"><%=q.user.username %></span> wants to know...</span><br />
             <li><span class="questions"><%= q.the_question %></span><br />
-              <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-success' %>
+              <%= link_to "Answer", question_path(q), :class => 'btn btn-success btn-sm' %>
             </li>
             <hr />
           <% end %>
