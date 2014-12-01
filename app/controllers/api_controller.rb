@@ -11,7 +11,7 @@ class ApiController < ApplicationController
     def show
       question = Question.find(params[:id])
       render json: question, status: 200
-      
+
     end
 
     # def create

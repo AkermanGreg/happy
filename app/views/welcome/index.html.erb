@@ -12,7 +12,8 @@
   <% end %>
     <div class="col-md-4">
       <div class="homepage-boxes">
-      QUESTION: <%= q.the_question %><br />
+       <span class="center-text">q: <%= q.the_question %></span>
+      <hr />
       <% if !q.videos.nil? %>
         <% if !q.videos[0].nil? %>
           <%if !q.videos[0].filepath.nil? %>
@@ -20,7 +21,7 @@
             <video width="90%" height="90%" controls>
               <source src="<%= q.videos[0].filepath %>" type="video/webm">
             </video><br />
-             <%= button_to 'View All Answers', question_path(q), method: :get, :class => 'btn btn-primary' %>
+             <%= button_to 'View All Answers', question_path(q), method: :get, :class => 'btn btn-primary center-block' %>
           
           <% end %>
         <% end %>
@@ -44,37 +45,16 @@
 
 
  <div class="row" style="background-color: black; color: white;">
-  <div class="col-md-3">
-    <ul>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-    </ul>
+  <div class="col-md-1">
+   
   </div>
-  <div class="col-md-3">
-     <ul>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-    </ul>
+  <div class="col-md-10">
+    <br /><br />
+  <p>Developed by Sarah Cho, Gregory Akerman, and Martina Vassileva while students at General Assembly's Web Development Immersive Program</p><br />
   </div>
-  <div class="col-md-3">
-       <ul>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-    </ul>
-  </div>
-  <div class="col-md-3">
-       <ul>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-      <li><a href="#" class="whiteLinks">Link</a></li>
-    </ul>
+
+  <div class="col-md-1">
+    
   </div>
 </div>
  <div class="row" style="background-color: black; color: white;">

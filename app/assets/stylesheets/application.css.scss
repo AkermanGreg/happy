@@ -37,7 +37,7 @@
 }
 
 .header1 {
-  background-image: url("http://www.dayindecember.com/wp-content/uploads/2012/01/Times-Square1.jpg");
+  background-image: url("https://c1.staticflickr.com/9/8151/7150039103_0da71608b4_c.jpg");
 }
 
 .navbar {
@@ -162,18 +162,25 @@ a.whiteLinks:hover{color:#ffffff; text-decoration:underline;}
   margin-top: 20px;
 }
 
-video{ /* video border */ border: 1px solid #ccc; padding: 5px; margin: 5px; border-radius: 20px; /* tranzitionstransitions applied to the vodeovideo element */ -moz-transition: all 1s ease-in-out; -webkit-transition: all 1s ease-in-out; -o-transition: all 1s ease-in-out; -ms-transition: all 1s ease-in-out; transition: all 1s ease-in-out; } /* background color and gradient */ video, #start, #stop, #pause, #plus, #minus, #mute { /* background color */ background-color: #ffffff; /* background gradient */ background-image: linear-gradient(top, #fff, #fff); background-image: -moz-linear-gradient(top, #fff, #fff); background-image: -webkit-linear-gradient(top, #fff, #fff); background-image: -o-linear-gradient(top, #fff, #fff); background-image: -ms-linear-gradient(top, #fff, #fff); } /* shadows */ video, #start, #stop, #pause, #plus, #minus, #mute { box-shadow: 0 0 10px #ccc; } video:hover, video:focus, #start:hover, #stop:hover, #pause:hover, #plus:hover, #minus:hover, #mute:hover { /* glow */ box-shadow: 0 0 10px #f88; } #controls { display: none; margin: 10px 10px; } /* style for buttons */ #start, #stop, #pause, #plus, #minus, #mute { border: 1px solid #ccc; padding: 5px; border-radius: 10px; width: 60px; margin: 0 10px 0 0; }
+audio, video {
+border: 1px solid #BFC0C0;
+}
+
+video{ /* video border */ border: 1px solid #ccc; padding: 5px; margin: 5px; border-radius: 0px; /* tranzitionstransitions applied to the vodeovideo element */ -moz-transition: all 1s ease-in-out; -webkit-transition: all 1s ease-in-out; -o-transition: all 1s ease-in-out; -ms-transition: all 1s ease-in-out; transition: all 1s ease-in-out; } /* background color and gradient */ video, #start, #stop, #pause, #plus, #minus, #mute { /* background color */ background-color: #ffffff; /* background gradient */ background-image: linear-gradient(top, #fff, #fff); background-image: -moz-linear-gradient(top, #fff, #fff); background-image: -webkit-linear-gradient(top, #fff, #fff); background-image: -o-linear-gradient(top, #fff, #fff); background-image: -ms-linear-gradient(top, #fff, #fff); } /* shadows */ video, #start, #stop, #pause, #plus, #minus, #mute { box-shadow: 0 0 10px #ccc; } video:hover, video:focus, #start:hover, #stop:hover, #pause:hover, #plus:hover, #minus:hover, #mute:hover { /* glow */ box-shadow: 0 0 10px #f88; } #controls { display: none; margin: 10px 10px; } /* style for buttons */ #start, #stop, #pause, #plus, #minus, #mute { border: 1px solid #ccc; padding: 5px; border-radius: 10px; width: 60px; margin: 0 10px 0 0; }
 
 .floatRight {
-  float:right;
+  float: right;
 }
 
 .homepage-boxes {
-  border: 1px solid red;
+  -moz-box-shadow: 0 0 5px #888;
+  -webkit-box-shadow: 0 0 5px#888;
+  box-shadow: 0 0 5px #888;
   font-size: 18px;
-  margin-top: 20px;
-  padding: 10px;
+  margin-top: 15px;
+  padding: 5px;
   font-weight: bold;
+  border-radius: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -192,3 +199,21 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
   font-size: 18px;
 }
+
+.navbar-default {
+background-color: #1E1389;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav:hover > li > a {
+  color: #FFFFFF;
+ 
+}
+
+.textCenter {
+  text-align:center;
+}
+
