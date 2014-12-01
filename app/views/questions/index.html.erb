@@ -5,16 +5,39 @@
     <div class="col-md-5">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="panel-heading"><h2 class="red text-center">Questions</h2></div>
+          <div class="panel-heading"><h2 class="red text-center">Questions That Need Answers</h2></div>
           <% @questions.each do |q| %>
-              
 
-            <div class="questions-index"><span class="red">Q: </span><%= q.the_question %>"</div>
-            <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q) %>  Asked</span></div><br />
-              <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-default center-block' %>
-            
-            <hr />
-          <% end %>
+              <!--  if logged in, then remove user's questions from list -->
+              <% if current_user %>
+                <% if  q.videos.count == 0 %>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                   <div class="questions-index"><span class="red">Q: </span><%= q.the_question %></div> 
+                  <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q.user_id) %>  Asked</span>
+                  </div><br />
+                    <% if q.user_id != current_user.id %>
+                      <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-primary' %>
+                    <% end %>
+               </div>
+              </div>
+                
+                <% end %>
+
+              <% else %>
+                <% if q.videos.count == 0 %>
+                  <div class="panel panel-default">
+                  <div class="panel-body">
+                    <div class="questions-index"><span class="red">Q: </span><%= q.the_question %>"</div>
+                    <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q.user_id) %>   Asked</span></div><br />
+                      <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-default center-block' %>
+                    </div>
+                  </div>
+                <% end %>
+                 
+                
+              <% end %>
+            <% end %>
         </div>
       </div>
     </div>
@@ -24,16 +47,20 @@
           <div class="panel-body">
           <div class="panel-heading"><h2 class="red text-center">Questions with Answers</h2></div>
             <% @questions.each do |q| %>
-              <span class="questions"><span class="red">Q: </span><%= link_to q.the_question, question_path(q) %></span> <br />
-              <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q) %> Asked</div><br />
-              <div class="text-center">
-                <% if q.videos[0] != nil %>
-                  <video width="90%" height="90%" controls>
-                    <source src="<%= q.videos[0].filepath %>" type="video/webm">
-                </video>
-              </div>
-                <%= link_to "Create Your Own Video Answer!", new_video_path(q) %><br />
-                <hr />
+              <% if q.videos.count > 0 && q.videos[0] != nil %>
+                <span class="questions"><span class="red">Q: </span><%= link_to q.the_question, question_path(q) %></span> <br />
+                <div class="pull-right"><span class="grey"> --<%= link_to q.user.username, user_path(q.user_id) %> Asked</div><br />
+                <div class="text-center">
+                  
+                    
+                      <video width="90%" height="90%" controls>
+                        <source src="<%= q.videos[0].filepath %>" type="video/webm">
+                      </video><br />
+                      <div class="pull-right"><span class="green"> --<%= q.videos[0].user.username %> Answered</span></div>
+                </div>
+                    <%= link_to "Create Your Own Video Answer!", new_video_path(q), :class => 'redLinks' %><br />
+                    <hr />
+                  
               <% end %>
             <% end %>
           </div>

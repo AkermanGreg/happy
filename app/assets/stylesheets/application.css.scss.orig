@@ -37,7 +37,11 @@
 }
 
 .header1 {
+<<<<<<< HEAD
   background-image: url("brick_wall_background2.png");
+=======
+  background-image: url("https://c4.staticflickr.com/4/3481/5743035487_7330e0bd43_b.jpg");
+>>>>>>> master
 }
 
 .navbar {
@@ -46,6 +50,7 @@
 
 .navbar-brand {
   margin-top: 0px;
+  border: none;
 }
 
 /* White Links at Bottom */

@@ -3,6 +3,7 @@ class VideosController < ApplicationController
   def new
     @question = Question.find(params[:question_id])
     @video = Video.new
+    
   end
 
   def index

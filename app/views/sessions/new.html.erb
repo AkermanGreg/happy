@@ -1,36 +1,35 @@
-<body>
-  <div class="row" >
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-body">
-      <h1>Log In to "Happy"</h1>
-      <%= form_tag sessions_path do %>
-        <div class="field">
-          <%= text_field_tag :email, params[:email], :class => 'form-control', :placeholder => 'email' %> <br />
+<div class="row" >
+<div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h1>Log In to qURL</h1>
+          <%= form_tag sessions_path do %>
+            <div class="field">
+              <%= text_field_tag :email, params[:email], :class => 'form-control', :placeholder => 'email' %> <br />
+            </div>
+            <div class="field">
+              <%= password_field_tag :password, params[:password], :class => 'form-control', :placeholder => 'password' %> <br />
+            </div>
+            <div class="actions">
+              <%= submit_tag "Log In", :class => 'btn btn-primary' %></div>
+          <% end %> 
         </div>
-        <div class="field">
-          <%= password_field_tag :password, params[:password], :class => 'form-control', :placeholder => 'password' %> <br />
-        </div><nr />
-        <div class="actions">
-          <%= submit_tag "Log In", :class => 'btn btn-primary' %></div>
-      <% end %> 
+        <div class="panel-footer">
+          <small><p class="text-muted">New to Happy? <%= link_to "Sign Up", new_user_path %> </p></small>
         </div>
-      <div class="panel-footer">
-        <small><p class="text-muted">New to Happy? <%= link_to "Sign Up", new_user_path %> </p></small>
-      </div>
         <div>
-          hii hii
+         
           <% flash.each do |name,msg| %> 
           <%= content_tag :div, msg, id: "flash_#{name}" %>     
           <% end %>
         </div>
-      </div>       
 
+      </div>       
     </div>
     <div class="col-md-4"></div>
   </div>
-</body> 
+</div> 
 
 
 

@@ -7,19 +7,18 @@
     <div class="row">
   <% end %>
     <div class="col-md-4">
-      <div class="homepage-boxes">
-       
-      <div class="videoContainer">
+           
       <% if !q.videos.nil? %>
         <% if !q.videos[0].nil? %>
           <%if !q.videos[0].filepath.nil? %>
-         
-            <video width="90%" height="90%" controls>
-              <source src="<%= q.videos[0].filepath %>" type="video/webm">
-            </video>
- <div class="videoOverlay">
-       <p class="homepage-white text-center">q: <%= q.the_question %> </p>
-      </div>
+            <div class="homepage-boxes text-center">
+              <div class="videoContainer">
+              <video width="90%" height="90%" controls>
+                <source src="<%= q.videos[0].filepath %>" type="video/webm">
+              </video>
+            <div class="videoOverlay">
+              <p class="homepage-white text-center">q: <%= q.the_question %> </p>
+            </div>
             <br />
              <%= link_to 'View All Answers', question_path(q), method: :get, :class => 'btn btn-primary center-block' %>
           
