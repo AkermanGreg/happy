@@ -12,7 +12,6 @@
     @user = User.find(params[:id])
     #@questions = Question.where.not(user_id: params[:id])
     @questions = Question.all
-    
 
   end
 
@@ -20,7 +19,7 @@
     @user = User.new(user_params)
     if @user.save
         session[:user_id] = @user.id
-        redirect_to root_url, notice: "Thank you for signing up!"
+        redirect_to root_url
     else
         render "new"
     end

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])
             # sets the cookie to the browser
             session[:user_id] = user.id
-            redirect_to root_url, notice: "Logged in!"
+            redirect_to root_url
         else
             flash.now.alert = "Email or password is invalid"
             render "new"
@@ -21,6 +21,6 @@ class SessionsController < ApplicationController
     def destroy
         # Kill our cookies!
         reset_session
-        redirect_to root_path, notice: "Logged out!"
+        redirect_to root_path
     end
 end

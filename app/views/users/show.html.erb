@@ -26,14 +26,15 @@
     <video width="90%" height="90%" controls>
     <source src="<%= v.filepath %>" type="video/webm">
     </video><br />
-      <%=form_tag(delete_video_path(id: v.id, question_id: v.question_id), method: "delete") do %>
-        <div class='actions'>
-        <%= button_tag "Delete", :class => 'btn btn-warning btn-xs' %>
+      <% if current_user.id == v.user_id %>
+        <%=form_tag(delete_video_path(id: v.id, question_id: v.question_id), method: "delete") do %>
+          <div class='actions'>
+          <%= button_tag "Delete", :class => 'btn btn-warning btn-xs' %>
+          </div> 
+        <% end %>
+        
       <% end %>
    <% end %>
-        </div> 
-
-
 
     </div>  
     <div class="col-md-4">
