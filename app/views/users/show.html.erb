@@ -4,15 +4,16 @@
       <br />
       <br />
       <br />
-       <h1> 
-          Welcome: <%= @user.username %>  <%= link_to "Ask qURL", new_question_path,  :class => 'btn btn-primary' %>
-        </h1> 
-     <br />
+     
           
         <h2>List of Questions To Answer</h2><br />
         <% @questions.each do |q| %>
           <% if  q.user_id != @user.id %>
-          <strong><%=q.user.username %>'s</strong> Question: <strong><%=q.the_question %></strong> <br /> <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %><br /><br />
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <strong><%=q.user.username %>'s</strong> Question: <span class="questions"><%=q.the_question %></span> <br /> <%= link_to "View Answers", question_path(q) %> | <%= link_to "Answer This Question", new_video_path(q) %>
+            </div>
+          </div>
         <% end %>
          
       <% end %>
@@ -20,10 +21,10 @@
      
     </div>
     <div class="col-md-4">
-  <h2>User's Answers</h2>
+  <h2>What <%= @user.username %> has answered</h2>
 
   <% @user.videos.each do |v| %>
-  
+   <%= v.user.username %> asked <%= v.question.the_question %>
     <video width="90%" height="90%" controls>
     <source src="<%= v.filepath %>" type="video/webm">
     </video><br />
@@ -41,13 +42,14 @@
     <div class="col-md-4">
        
       <h2><%= @user.username %>'s Questions</h2>
-      <p>E-Mail: <%= @user.email %><br /><br />
+      E-Mail: <%= @user.email %><br /><br />
       <% @user.questions.each do |q| %>
       <%= q.user.username %>: <%= q.the_question %> </br>
       </br>
-      <%= link_to "Edit User", edit_user_path %>
+      
        
       <% end %>
+      <%= link_to "Edit User", edit_user_path %>
 
     </div>
 

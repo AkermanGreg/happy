@@ -4,7 +4,7 @@
     <div class="col-md-10">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="panel-heading"><h1>The Question: <%= @question.the_question %></h1></div>
+          <div class="panel-heading"><h1>The Question: <%= @question.the_question %>- <%= link_to "Answer", new_video_path(@question.id),  :class => 'btn btn-primary'  %></h1> <br /></div>
             <% @question.videos.each do |v| %>
                   <% if v.filepath != nil %>
                     
@@ -29,11 +29,6 @@
             <% end %>
         </div>
       </div>
-      
-      <%= link_to "Answer", new_video_path(@question.id) %><br />
-
-
-    
       
       <%= link_to "Edit", edit_question_path %><br />
     
