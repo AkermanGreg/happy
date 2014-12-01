@@ -26,10 +26,12 @@
             <% @questions.each do |q| %>
               <span class="questions"><span class="red">Q: </span><%= link_to q.the_question, question_path(q) %></span> <br />
               <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q) %> Asked</div><br />
-              <% if q.videos[0] != nil %>
-                <video width="90%" height="90%" controls>
-                  <source src="<%= q.videos[0].filepath %>" type="video/webm">
-                </video><br />
+              <div class="text-center">
+                <% if q.videos[0] != nil %>
+                  <video width="90%" height="90%" controls>
+                    <source src="<%= q.videos[0].filepath %>" type="video/webm">
+                </video>
+              </div>
                 <%= link_to "Create Your Own Video Answer!", new_video_path(q) %><br />
                 <hr />
               <% end %>
