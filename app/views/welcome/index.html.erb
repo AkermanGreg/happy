@@ -3,29 +3,24 @@
 
 <!-- num is counting how many cells we are along -->
   <% num = 0 %>
-    <% @questions.take(6).each do |q| %>
+    <% @videos.take(6).each do |v| %>
   <!-- every group of 3 opens a new row -->
   <% if (num % 3) == 0 %>
     <div class="row">
   <% end %>
     <div class="col-md-4">
-           
-      <% if !q.videos.nil? %>
-        <% if !q.videos[0].nil? %>
-          <%if !q.videos[0].filepath.nil? %>
-            <div class="homepage-boxes text-center">
-              <div class="videoContainer">
-              <video width="90%" height="90%" controls>
-                <source src="<%= q.videos[0].filepath %>" type="video/webm">
-              </video>
-            <div class="videoOverlay">
-              <p class="homepage-white">q: <%= q.the_question %> </p>
-            </div>
-            <br />
-             <%= link_to 'View All Answers', question_path(q), method: :get, :class => 'btn btn-primary center-block' %>
+      <% if !v.filepath.nil? %>
+        <div class="homepage-boxes text-center">
+          <div class="videoContainer">
+          <video width="90%" height="90%" controls>
+            <source src="<%= v.filepath %>" type="video/webm">
+          </video>
+        <div class="videoOverlay">
+          <p class="homepage-white">q: <%= v.question.the_question %> </p>
+        </div>
+        <br />
+         <%= link_to 'View All Answers', question_path(v.question.id), method: :get, :class => 'btn btn-primary center-block' %>
           
-          <% end %>
-        <% end %>
       <% end %>
     </div>
     </div>
