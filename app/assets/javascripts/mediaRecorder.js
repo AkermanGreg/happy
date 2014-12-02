@@ -68,6 +68,7 @@ function mediaRecorder() {
 
         // replay the video plus add controls
         xhr('/videos', JSON.stringify(files), function(_fileName) {
+
             videoElement.src = _fileName;
             // videoElement.play();
             videoElement.muted = false;
