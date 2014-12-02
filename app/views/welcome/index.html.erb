@@ -3,7 +3,7 @@
 
 <!-- num is counting how many cells we are along -->
   <% num = 0 %>
-    <% @videos.take(6).each do |v| %>
+    <% @videos.order('id ASC').take(6).each do |v| %>
   <!-- every group of 3 opens a new row -->
   <% if (num % 3) == 0 %>
     <div class="row">
