@@ -1,8 +1,22 @@
-<h1> Edit this Question! </h1>
-  <p>Username:  <%= @question.user.username %></p>
-    <%= form_for @question do |q| %>
-       The Question: <%= q.text_field :the_question %><br />
-       <%= q.submit "Edit Question!" %>
-    <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-body">
+          <div class="panel-heading"><h2>Edit This Question</h2></div>
+            <%= form_for @question do |q| %>
+              <div class="field">
+                The Question: <%= q.text_field :the_question, :class => 'form-control' %><br />
+                <%= q.submit "Edit Question", :class => 'btn btn-warning' %>
+              </div><br />
+               <%= link_to "Back to the list!", questions_path %>
+            <% end %>
+        </div>
+      </div>
+      
+    <div class="col-md-2"></div>
+  </div>
+</div>
 
-    <%= link_to "Back to the list!", questions_path %>
+   

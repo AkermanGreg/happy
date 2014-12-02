@@ -1,4 +1,6 @@
+
 <div id="header" class="header1"></div>
+
 <!-- num is counting how many cells we are along -->
   <% num = 0 %>
     <% @questions.take(6).each do |q| %>
@@ -11,7 +13,7 @@
       <% if !q.videos.nil? %>
         <% if !q.videos[0].nil? %>
           <%if !q.videos[0].filepath.nil? %>
-            <div class="homepage-boxes text-center animated lightspeedIn">
+            <div class="homepage-boxes text-center">
               <div class="videoContainer">
               <video width="90%" height="90%" controls>
                 <source src="<%= q.videos[0].filepath %>" type="video/webm">
