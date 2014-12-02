@@ -37,7 +37,11 @@
 }
 
 .header1 {
+<<<<<<< HEAD
   background-image: url("brick_wall_background2.png");
+=======
+  background-image: url("https://c4.staticflickr.com/4/3481/5743035487_7330e0bd43_b.jpg");
+>>>>>>> master
 }
 
 .navbar {
@@ -46,6 +50,7 @@
 
 .navbar-brand {
   margin-top: 0px;
+  border: none;
 }
 
 /* White Links at Bottom */
@@ -158,11 +163,9 @@ background-color: #4da4b8;
 
 .homepage-white {
   font-family: 'Raleway', sans-serif;
-  font-size: 30px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: 800;
   color: white;
   text-shadow: 2px 2px 2px black;
-  text-align:left;
-  width: 95%;
 }
 

@@ -15,8 +15,10 @@
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header"> 
-       <div class="navbar-brand" ><%= link_to image_tag("qurl_logo_100.png"), root_path, method: :get, :class => 'animated bounce' %></div>
-    </div>
+
+       <div class="navbar-brand"><%= link_to image_tag("qurl100.png"), root_path, method: :get %></div>
+
+      </div>
  
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,9 +36,9 @@
         
         <% else %>
         
-        <li><%= button_to "Sign Up", new_user_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %> 
-        </li>
-          <li><%= button_to "Sign  In", new_session_path, method: :get, :class => 'btn btn-default navbar-btn btn-sm' %></li>
+        <li><%= link_to "Sign Up", new_user_path, method: :get %> 
+        </li> 
+          <li><%= link_to "Sign  In", new_session_path, method: :get %></li>
           <% end %>
       
     </div><!-- /.navbar-collapse -->
