@@ -128,18 +128,15 @@ private
       convert_command = "cp #{video_path} #{output_video_path}"
     end
 
-    Thread.new do
+    system(convert_command)
 
-      system(convert_command)
-
-      if $? != 0
-        return
-      end
-
-      File.delete(audio_path, video_path)
-
-      ActiveRecord::Base.connection.close
+    if $? != 0
+      return
     end
+
+    File.delete(audio_path, video_path)
+
+    ActiveRecord::Base.connection.close
 
     return output_video_path
 
