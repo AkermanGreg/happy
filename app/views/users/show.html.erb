@@ -28,7 +28,8 @@
                 <div class="pull-right"><span class="grey"> -<%= v.question.user.username %> Asked</span></div>
                 <video width="90%" height="90%" controls>
                   <source src="<%= v.filepath %>" type="video/webm">
-                </video><br /><%= v.user.username %>  Answered
+                </video><br />
+                <div class="green pull-right"><%= v.user.username %>  Answered</div>
                 <% if current_user.id == v.user_id %>
                   <%=form_tag(delete_video_path(id: v.id, question_id: v.question_id), method: "delete") do %>
                     <div class='actions'>
@@ -42,7 +43,8 @@
         </div>  
       <div class="col-md-4">
             <h2><%= @user.username %>'s Questions</h2>
-            E-Mail: <%= @user.email %><br /><br />
+            E-Mail: <%= @user.email %><br />
+            <%= link_to "Edit User", edit_user_path %>
 
             <% @user.questions.each do |q| %>
         <div class="panel panel-default">
@@ -53,8 +55,6 @@
       
        
       <% end %>
-      <%= link_to "Edit User", edit_user_path %>
-
     </div>
 
 

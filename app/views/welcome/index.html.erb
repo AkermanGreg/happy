@@ -11,13 +11,13 @@
       <% if !q.videos.nil? %>
         <% if !q.videos[0].nil? %>
           <%if !q.videos[0].filepath.nil? %>
-            <div class="homepage-boxes text-center">
+            <div class="homepage-boxes text-center animated lightspeedIn">
               <div class="videoContainer">
               <video width="90%" height="90%" controls>
                 <source src="<%= q.videos[0].filepath %>" type="video/webm">
               </video>
             <div class="videoOverlay">
-              <p class="homepage-white text-center">q: <%= q.the_question %> </p>
+              <p class="homepage-white">q: <%= q.the_question %> </p>
             </div>
             <br />
              <%= link_to 'View All Answers', question_path(q), method: :get, :class => 'btn btn-primary center-block' %>
