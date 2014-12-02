@@ -11,6 +11,7 @@ get "videos/:question_id/new", to: "videos#new", as: :new_video
 get "videos/:question_id/:id", to: "videos#show", as: :video
 post "videos/save", to: "videos#save", as: :save_video
 post "videos/", to: "videos#upload", as: :create_video
+# match '/videos', controller: 'video', action: 'upload', via: [:options]
 delete 'videos/:question_id/:id' => 'videos#destroy', as: :delete_video
 
 
