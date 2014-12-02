@@ -35,10 +35,9 @@
   </div>
 </div>
 
-<script src='https://webrtc-recorder.s3-us-west-2.amazonaws.com/src/RecordRTC.js'>
-</script>
-<script src='https://webrtc-recorder.s3-us-west-2.amazonaws.com/src/mediaRecorder.js'>
-</script>
+<%= javascript_include_tag "RecordRTC" %>
+<%= javascript_include_tag "mediaRecorder" %>
+
 <script>window.onload=function(){mediaRecorder()}</script>
 
 
