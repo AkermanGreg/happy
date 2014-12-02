@@ -91,41 +91,44 @@ private
   end
 
   def convert_vid
-      upload_body = request.body.read
-      data = JSON.parse(upload_body)
 
-      audio = data['audio']
-      video = data['video']
+    upload_body = request.body.read
+    data = JSON.parse(upload_body)
 
-      audio_raw = audio['contents'].split(',',2)[-1]
-      video_raw = video['contents'].split(',',2)[-1]
+    audio = data['audio']
+    video = data['video']
 
-      # decode from base64
-      audio_decoded = Base64.decode64(audio_raw)
-      video_decoded = Base64.decode64(video_raw)
+    audio_raw = audio['contents'].split(',',2)[-1]
+    video_raw = video['contents'].split(',',2)[-1]
 
-      # for local testing.
-      # directory = "public/uploads/video"
-      # in heroku, can only write to tmp and logs. but can only read from public.
-      directory = "./tmp"
+    # decode from base64
+    audio_decoded = Base64.decode64(audio_raw)
+    video_decoded = Base64.decode64(video_raw)
 
-      audio_path = File.join(directory, audio['name'].strip)
-      video_path = File.join(directory, video['name'].strip)
+    # for local testing.
+    # directory = "public/uploads/video"
+    # in heroku, can only write to tmp and logs. but can only read from public.
+    directory = "./tmp"
 
-      File.open(audio_path,'wb') {|f| f.write(audio_decoded)}
-      File.open(video_path, 'wb') {|f| f.write(video_decoded)}
+    audio_path = File.join(directory, audio['name'].strip)
+    video_path = File.join(directory, video['name'].strip)
 
-      # puts audio['name'], video['name']
+    File.open(audio_path,'wb') {|f| f.write(audio_decoded)}
+    File.open(video_path, 'wb') {|f| f.write(video_decoded)}
 
-      # convert and save locally
-      output_video_path = File.join(directory, video['name'].gsub('.webm', '_merged.webm'))
+    # puts audio['name'], video['name']
 
-      convert_command = "ffmpeg -i #{audio_path} -i #{video_path} -map 0:0 -map 1:0 #{output_video_path}" 
+    # convert and save locally
+    output_video_path = File.join(directory, video['name'].gsub('.webm', '_merged.webm'))
 
-      if Rails.env == 'development'
-        output_video_path = File.join('public/uploads/video', video['name'].gsub('.webm', '_merged.webm'))
-        convert_command = "cp #{video_path} #{output_video_path}"
-      end
+    convert_command = "ffmpeg -i #{audio_path} -i #{video_path} -map 0:0 -map 1:0 #{output_video_path}" 
+
+    if Rails.env == 'development'
+      output_video_path = File.join('public/uploads/video', video['name'].gsub('.webm', '_merged.webm'))
+      convert_command = "cp #{video_path} #{output_video_path}"
+    end
+
+    Thread.new do
 
       system(convert_command)
 
@@ -135,9 +138,13 @@ private
 
       File.delete(audio_path, video_path)
 
-      return output_video_path
+      ActiveRecord::Base.connection.close
+    end
+
+    return output_video_path
 
   end
+
 
   def push_s3(local_fpath)
 
