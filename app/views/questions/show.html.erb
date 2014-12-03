@@ -4,14 +4,18 @@
     <div class="col-md-10">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="panel-heading"><h1>The Question: <%= @question.the_question %>- <%= link_to "Answer", new_video_path(@question.id),  :class => 'btn btn-primary'  %></h1> 
+          <div class="panel-heading"><h1>The Question: <%= @question.the_question %> <%= link_to "Answer", new_video_path(@question.id),  :class => 'btn btn-primary'  %></h1> 
             <hr />
-            <h2 class="green">
-              The Answers 
+            <% num = 1 %>
+       
             </h2>
           </div>
+            
           <% @question.videos.each do |v| %>
             <% if v.filepath != nil %>
+             <h2 class="green">
+                Answer: <%= num %>
+              </h2>
               <video width="70%" height="70%" controls>
                 <source src="<%= v.filepath %>" type="video/webm">
               </video>
@@ -24,9 +28,12 @@
                     <%= link_to "Back to the list!", questions_path %><br />
                   </div>
               </div>
+              
                 <% end %>
                 <hr />  
+
             <% end %>
+            <% num = num + 1 %>
           <% end %>
         </div>
       </div>

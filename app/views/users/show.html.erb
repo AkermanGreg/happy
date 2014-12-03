@@ -44,6 +44,7 @@
       <div class="col-md-4">
             <h2><%= @user.username %>'s Questions</h2>
             E-Mail: <%= @user.email %><br />
+              
             <%= link_to "Edit User", edit_user_path %>
 
             <% @user.questions.each do |q| %>

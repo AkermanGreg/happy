@@ -11,9 +11,7 @@ FactoryGirl.define do
 
   end
 
-  factory :user2, class: User do
-    id "3"
-  end
+
   
 
 
