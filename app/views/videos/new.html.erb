@@ -1,3 +1,7 @@
+<!-- web -->   
+<!-- <script src="https://www.webrtc-experiment.com/RecordRTC.js"> </script>  -->    
+<!-- include tag - dev looks in assets/production in public -->    
+<%#= javascript_include_tag "RecordRTC", "data-turbolinks-track" => true %>    
 
 <div class='container'>
   <div class='row'>
@@ -8,7 +12,6 @@
       <p>
           <video width="90%" height="90%"></video> 
       </p><hr />
-
       <div>
         <button class='btn btn-warning' id="btn-start-recording">record</button>
         <button class='btn btn-warning' id="btn-stop-recording" disabled="">stop</button>
@@ -29,7 +32,8 @@
     </div>
   </div>
 </div>
-
+<%#= javascript_include_tag "RecordRTC" %>   
+<%#= javascript_include_tag "mediaRecorder" %>
 <script>window.onload=function(){mediaRecorder()}</script>
 
 

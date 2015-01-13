@@ -3,7 +3,7 @@
 
 <!-- num is counting how many cells we are along -->
   <% num = 0 %>
-    <% @videos.order('id ASC').take(6).each do |v| %>
+    <% @videos.order('id DESC').take(6).each do |v| %>
       <!-- every group of 3 opens a new row -->
       <% if (num % 3) == 0 %>
         <div class="row">
@@ -19,7 +19,7 @@
           <p class="homepage-white">q: <%= v.question.the_question %> </p>
         </div>
         <br />
-         <%= link_to 'View All Answers', question_path(v.question.id), method: :get, :class => 'btn btn-primary center-block' %>
+         <%= link_to 'View All The Answers', question_path(v.question.id), method: :get, :class => 'btn btn-primary center-block' %>
           
       <% end %>
     </div>
