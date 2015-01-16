@@ -4,34 +4,38 @@
 <!-- num is counting how many cells we are along -->
   <% num = 0 %>
     <% @videos.order('id DESC').take(6).each do |v| %>
+
       <!-- every group of 3 opens a new row -->
       <% if (num % 3) == 0 %>
         <div class="row">
       <% end %>
-      <div class="col-md-4">
-      <% if !v.filepath.nil? %>
-        <div class="homepage-boxes text-center">
-          <div class="videoContainer">
-          <video width="90%" height="90%" controls>
-            <source src="<%= v.filepath %>" type="video/webm">
-          </video>
-        <div class="videoOverlay">
-          <p class="homepage-white">q: <%= v.question.the_question %> </p>
+
+        <div class="col-md-4">
+
+          <% if !v.filepath.nil? %>
+            <div class="homepage-boxes text-center">
+              <div class="videoContainer">
+                <video width="90%" height="90%" controls>
+                  <source src="<%= v.filepath %>" type="video/webm">
+                </video>
+                <div class="videoOverlay">
+                  <p class="homepage-white">q: <%= v.question.the_question %> </p>
+                </div>
+                <br/>
+                <%= link_to 'View All The Answers', question_path(v.question.id), method: :get, :class => 'btn btn-primary center-block' %>
+              </div>
+            </div>
+          <% end %>
+
         </div>
-        <br />
-         <%= link_to 'View All The Answers', question_path(v.question.id), method: :get, :class => 'btn btn-primary center-block' %>
-          
+
+      <!-- if at end of group of 3, it closes the row out -->
+      <% if (num % 3) == 0 %>
+        </div>
       <% end %>
-    </div>
-    </div>
-    </div>
-    <!-- if at end of group of 3, it closes the row out -->
-    <% if (num % 3) == 2 %>
-      </div>
+      <!-- Adds 1 each loop -->
+      <% num += 1 %>
     <% end %>
-    <!-- Adds 1 each loop -->
-    <% num += 1 %>
-<% end %>
 
 <!--ONLY RUNS AFTER LOOP IS OVER if not evenly divisable by 3, must add a div -->
   <% if (num % 3) != 0 %>
