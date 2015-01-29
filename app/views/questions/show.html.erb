@@ -1,16 +1,28 @@
  <div class="container-fluid">
   <div class="row">
+
     <div class="col-md-1"></div>
     <div class="col-md-10">
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="panel-heading"><h1>The Question: <%= @question.the_question %> <%= link_to "Answer", new_video_path(@question.id),  :class => 'btn btn-primary'  %></h1> 
-            <hr />
-            <% num = 1 %>
-       
-            </h2>
+          <div class="panel-heading">
+            <h1><%= @question.the_question %> </h1>
+            <div class="pull-right"><%= link_to "answer", new_video_path(@question.id),  :class => 'btn btn-primary' %>
+            </div>
+              <div>
+                <div>asked by <%= link_to @question.user.username, user_path(@question.user.id) %></div>
+                <div>time placeholder</div>
+                <br/>
+                <div class='actions'>
+                  <%= link_to "Back to the list!", questions_path %><br />
+                  <% if current_user == @question.user.username %>
+                    <%= button_tag "Delete", data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </div>
+              </div>
           </div>
-            
+          <hr />
+          <% num = 1 %>
           <% @question.videos.each do |v| %>
             <% if v.filepath != nil %>
              <h2 class="green">
@@ -19,26 +31,27 @@
               <video width="70%" height="70%" controls>
                 <source src="<%= v.filepath %>" type="video/webm">
               </video>
-                    
               <div class="pull-right">
-                <i>Belongs to: <%= link_to @question.user.username, user_path(@question.user.id) %></i>
-                <%=form_tag(delete_video_path(id: v.id, question_id: @question.id), method: "delete") do %>
+                <%= link_to v.user.username, user_path(v.user.id) %>
+                time placeholder
                   <div class='actions'>
-                    <%= button_tag "Delete Answer", data: { confirm: 'Are you sure?' } %><br />
-                    <%= link_to "Back to the list!", questions_path %><br />
+                    <% if current_user == v.user.username %>
+                      <%= button_tag "Delete Answer", data: { confirm: 'Are you sure?' } %><br />
+                    <% end %><br />
                   </div>
               </div>
-              
-                <% end %>
-                <hr />  
-
+              <hr />  
             <% end %>
-            <% num = num + 1 %>
           <% end %>
+
+            <% num = num + 1 %>
         </div>
       </div>
       <%= link_to "Edit", edit_question_path %><br />
     </div>
-    <div class="col-md-1"></div>
+
+    <div class="col-md-1">
+    </div>
+
   </div>
 </div>

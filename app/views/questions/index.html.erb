@@ -10,12 +10,12 @@
 
               <!--  if logged in, then remove user's questions from list -->
               <% if current_user %>
-                <% if  q.videos.count == 0 %>
+                <% if q.videos.count == 0 %>
                 <div class="panel panel-default">
                   <div class="panel-body">
                    <div class="questions-index"><span class="red">Q: </span><%= q.the_question %></div> 
-                  <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q.user_id) %>  Asked</span>
-                  </div><br />
+                    <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q.user_id) %>  Asked</span>
+                    </div><br />
                     <% if q.user_id != current_user.id %>
                         <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-primary' %>
                     <% end %>
@@ -29,7 +29,7 @@
                   <div class="panel panel-default">
                   <div class="panel-body">
                     <div class="questions-index"><span class="red">Q: </span><%= q.the_question %>"</div>
-                    <div class="pull-right"><span class="grey">| <%= link_to q.user.username, user_path(q.user_id) %>   Asked</span></div><br />
+                    <div class="pull-right"><span class="grey"> <%= link_to q.user.username, user_path(q.user_id) %>   asked</span></div><br />
                       <%= link_to "Answer This Question", question_path(q), :class => 'btn btn-default center-block' %>
                     </div>
                   </div>
